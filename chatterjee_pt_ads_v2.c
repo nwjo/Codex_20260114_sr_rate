@@ -163,8 +163,7 @@ static inline real gas_conc_cell(cell_t c0, Thread *t0, real yi_k, real MW_k)
 {
     const real T = MAX(EPS, C_T(c0, t0));
     const real P_abs = C_P(c0, t0) + RP_Get_Real("operating-pressure");
-    const real MW_mix = MAX(EPS, C_MW(c0, t0));
-    const real R_specific = UNIVERSAL_GAS_CONSTANT / MW_mix;
+    const real R_specific = UNIVERSAL_GAS_CONSTANT / MW_k;
     const real rho = P_abs / MAX(EPS, R_specific * T);
     return (rho * yi_k) / MAX(EPS, MW_k);
 }
