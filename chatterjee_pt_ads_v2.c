@@ -72,14 +72,14 @@ enum {
 #define IDX_NO_Pt 16
 #define IDX_N_Pt 17
 #define IDX_C3H5_Pt 18
-// #define IDX_C2H5_Pt 19
-// #define IDX_CH2_Pt 20
-// #define IDX_CH3_Pt 21
+#define IDX_C2H3_Pt 19
+#define IDX_CH2_Pt 20
+#define IDX_CH3_Pt 21
 #define IDX_OH_Pt 22
-// #define IDX_CH_Pt 23
-// #define IDX_C_Pt 24
-// #define IDX_CC2H5 25
-// #define IDX_CH3CO 26
+#define IDX_CH_Pt 23
+#define IDX_C_Pt 24
+#define IDX_CC2H5_Pt 25
+#define IDX_CH3CO_Pt 26
 #define IDX_Rh_Vac 27
 #define IDX_O_Rh 28
 #define IDX_CO_Rh 29
@@ -215,93 +215,261 @@ static const real mu_r53[]       = { -1.0 };
 #define A54_k   1.263471E+08
 #define A55_k   1.220665E+08
 
-// /* --- DESORPTION CONSTANTS (Added from rev19) --- */
-// /* R8: 2O(s) -> O2 */
-// static const int  idx_site_r8[] = {IDX_O_Pt};
-// static const real eps_r8[]      = {9.0E7};
-// #define NS_R8 1             // number of coverage dependent species
-// #define A8_k 3.7E20
-// #define B8_beta 0.0
-// #define Ea8_Jpm 2.322E8
+/* --- DESORPTION CONSTANTS (Added from rev19) --- */
+/* R8: 2O(s) -> O2 */
+static const int  idx_site_r8[] = {IDX_O_Pt};
+static const real eps_r8[]      = {9.0E7};
+#define NS_R8 1             // number of coverage dependent species
+#define A8_k 3.7E20
+#define B8_beta 0.0
+#define Ea8_Jpm 2.322E8
 
-// /* R9: C3H6(s) -> C3H6 */
-// #define NS_R9 0
-// #define A9_k 1E13
-// #define B9_beta 0.0
-// #define Ea9_Jpm 7.27E7
+/* R9: C3H6(s) -> C3H6 */
+#define NS_R9 0
+#define A9_k 1E13
+#define B9_beta 0.0
+#define Ea9_Jpm 7.27E7
 
-// /* R10: C3H5(s) -> ... */
-// #define NS_R10 0
-// #define A10_k 3.7E20
-// #define B10_beta 0.0
-// #define Ea10_Jpm 3.1E7
+/* R10: C3H5(s) -> ... */
+#define NS_R10 0
+#define A10_k 3.7E20
+#define B10_beta 0.0
+#define Ea10_Jpm 3.1E7
 
-// /* R11: 2H(s) -> H2 */
-// static const int  idx_site_r11[] = {IDX_H_Pt};
-// static const real eps_r11[]      = {6.0E6};         // fixed 6.0E7 -> 6.0E6
-// #define NS_R11 1
-// #define A11_k 3.7E20
-// #define B11_beta 0.0
-// #define Ea11_Jpm 6.74E7
+/* R11: 2H(s) -> H2 */
+static const int  idx_site_r11[] = {IDX_H_Pt};
+static const real eps_r11[]      = {6.0E6};         // fixed 6.0E7 -> 6.0E6
+#define NS_R11 1
+#define A11_k 3.7E20
+#define B11_beta 0.0
+#define Ea11_Jpm 6.74E7
 
-// /* R12: H2O(s) -> H2O */
-// #define NS_R12 0
-// #define A12_k 1.0E13
-// #define B12_beta 0.0
-// #define Ea12_Jpm 4.03E7
+/* R12: H2O(s) -> H2O */
+#define NS_R12 0
+#define A12_k 1.0E13
+#define B12_beta 0.0
+#define Ea12_Jpm 4.03E7
 
-// /* R13: CO(s) -> CO */
-// static const int  idx_site_r13[] = {IDX_CO_Pt};
-// static const real eps_r13[]      = {3.3E7};
-// #define NS_R13 1
-// #define A13_k 1.0E13
-// #define B13_beta 0.0
-// #define Ea13_Jpm 1.364E8
+/* R13: CO(s) -> CO */
+static const int  idx_site_r13[] = {IDX_CO_Pt};
+static const real eps_r13[]      = {3.3E7};
+#define NS_R13 1
+#define A13_k 1.0E13
+#define B13_beta 0.0
+#define Ea13_Jpm 1.364E8
 
-// /* R14: CO2(s) -> CO2 */
-// #define NS_R14 0
-// #define A14_k 1.0E13
-// #define B14_beta 0.0
-// #define Ea14_Jpm 2.71E7
+/* R14: CO2(s) -> CO2 */
+#define NS_R14 0
+#define A14_k 1.0E13
+#define B14_beta 0.0
+#define Ea14_Jpm 2.71E7
 
-// /* R49: NO(s) -> NO (Pt) */
-// #define A49_k 1.0E16
-// #define Ea49_Jpm 1.4E8
+/* R15: C3H5(s) + 5O(s) -> 5OH(s) + 3C(s) */
+#define A15_k 3.7E16
+#define Ea15_Jpm 9.5E7
 
-// /* R50: 2N(s) -> N2 (Pt) */
-// static const int  idx_site_r50[] = {IDX_CO_Pt};
-// static const real eps_r50[]      = {7.5E7};
-// #define NS_R50 1
-// #define A50_k 3.7E20
-// #define B50_beta 0.0
-// #define Ea50_Jpm 1.139E8
+/* R16: C3H6(s) + H(s) -> CC2H5(s) */
+#define A16_k 1.0E12
+#define Ea16_Jpm 7.54E7
 
-// /* R56: 2O(Rh) -> O2 */
-// #define A56_k 3.0E20        /*miss, fixed*/
-// #define B56_beta 0.0
-// #define Ea56_Jpm 2.933E8
+/* R17: CC2H5(s) + H(s) -> C3H6(s) */
+#define A17_k 3.7E20
+#define Ea17_Jpm 4.88E7
 
-// /* R57: CO(Rh) -> CO */
-// static const int  idx_site_r57[] = {IDX_CO_Rh, IDX_N_Rh};
-// static const real eps_r57[]      = {1.88E7, 4.19E7};
-// #define NS_R57 2
-// #define A57_k 1.0E14
-// #define B57_beta 0.0
-// #define Ea57_Jpm 1.323E8
+/* R18: CC2H5(s) + Pt(s) -> C2H3(s) + CH2(s) */
+#define A18_k 3.7E20
+#define Ea18_Jpm 1.082E8
 
-// /* R58: NO(Rh) -> NO */
-// #define A58_k 5.0E13
-// #define B58_beta 0.0
-// #define Ea58_Jpm 1.089E8
+/* R19: C2H3(s) + CH2(s) + Pt(s) -> CC2H5(s) */
+#define A19_k 3.7E20
+#define Ea19_Jpm 3.2E6
 
-// /* R59: 2N(Rh) -> N2 */
-// static const int  idx_site_r59[] = {IDX_N_Rh};
-// static const real eps_r59[]      = {1.67E7};
-// #define NS_R59 1
-// #define A59_k 1.11E18
-// #define B59_beta 0.0
-// #define Ea59_Jpm 1.369E8
+/* R20: C2H3(s) + Pt(s) -> CH3(s) + C(s) */
+#define A20_k 3.7E20
+#define Ea20_Jpm 4.6E7
 
+/* R21: CH3(s) + C(s) -> C2H3(s) + Pt(s) */
+#define A21_k 3.7E20
+#define Ea21_Jpm 4.69E7
+
+/* R22: CH3(s) + Pt(s) -> CH2(s) + H(s) */
+#define A22_k 1.26E21
+#define Ea22_Jpm 7.04E7
+
+/* R23: CH2(s) + H(s) -> CH3(s) + Pt(s) */
+#define A23_k 3.09E21
+#define Ea23_Jpm 0.0
+
+/* R24: CH2(s) + Pt(s) -> CH(s) + H(s) */
+#define A24_k 7.0E21
+#define Ea24_Jpm 5.92E7
+
+/* R25: CH(s) + H(s) -> CH2(s) + Pt(s) */
+#define A25_k 3.09E21
+#define Ea25_Jpm 0.0
+
+/* R26: CH(s) + Pt(s) -> C(s) + H(s) */
+#define A26_k 3.09E21
+#define Ea26_Jpm 0.0
+
+/* R27: C(s) + H(s) -> CH(s) + Pt(s) */
+#define A27_k 1.25E21
+#define Ea27_Jpm 1.38E8
+
+/* R28: C2H3(s) + O(s) -> Pt(s) + CH3CO(s) */
+#define A28_k 3.7E18
+#define Ea28_Jpm 6.23E7
+
+/* R29: CH3CO(s) + Pt(s) -> C2H3(s) + O(s) */
+static const int  idx_site_r29[] = {IDX_O_Pt};
+static const real eps_r29[]      = {-4.5E7};
+#define NS_R29 1
+#define A29_k 3.7E20
+#define Ea29_Jpm 1.967E8
+
+/* R30: CH3(s) + CO(s) -> Pt(s) + CH3CO(s) */
+#define A30_k 3.7E20
+#define Ea30_Jpm 8.29E7
+
+/* R31: CH3CO(s) + Pt(s) -> CH3(s) + CO(s) */
+#define A31_k 3.7E20
+#define Ea31_Jpm 0.0
+
+/* R32: CH3(s) + O(s) -> CH2(s) + OH(s) */
+#define A32_k 3.7E20
+#define Ea32_Jpm 3.66E7
+
+/* R33: CH2(s) + OH(s) -> CH3(s) + O(s) */
+#define A33_k 3.7E20
+#define Ea33_Jpm 2.51E7
+
+/* R34: CH2(s) + O(s) -> CH(s) + OH(s) */
+#define A34_k 3.7E20
+#define Ea34_Jpm 2.51E7
+
+/* R35: CH(s) + OH(s) -> CH2(s) + O(s) */
+#define A35_k 3.7E20
+#define Ea35_Jpm 2.52E7
+
+/* R36: CH(s) + O(s) -> C(s) + OH(s) */
+#define A36_k 3.7E20
+#define Ea36_Jpm 2.51E7
+
+/* R37: C(s) + OH(s) -> CH(s) + O(s) */
+#define A37_k 3.7E20
+#define Ea37_Jpm 2.248E8
+
+/* R38: O(s) + H(s) -> OH(s) + Pt(s) */
+#define A38_k 3.7E20
+#define Ea38_Jpm 1.15E7
+
+/* R39: OH(s) + Pt(s) -> O(s) + H(s) */
+#define A39_k 5.77E21
+#define Ea39_Jpm 7.49E7
+
+/* R40: H(s) + OH(s) -> H2O(s) + Pt(s) */
+#define A40_k 3.7E20
+#define Ea40_Jpm 1.74E7
+
+/* R41: H2O(s) + Pt(s) -> H(s) + OH(s) */
+#define A41_k 3.66E20
+#define Ea41_Jpm 7.36E7
+
+/* R42: OH(s) + OH(s) -> H2O(s) + O(s) */
+#define A42_k 3.7E20
+#define Ea42_Jpm 4.82E7
+
+/* R43: H2O(s) + O(s) -> OH(s) + OH(s) */
+#define A43_k 2.35E19
+#define Ea43_Jpm 4.1E7
+
+/* R44: CO(s) + O(s) -> CO2(s) + Pt(s) */
+static const int  idx_site_r44[] = {IDX_CO_Pt, IDX_NO_Pt};
+static const real eps_r44[]      = {3.3E7, -9.0E7};
+#define NS_R44 2
+#define A44_k 3.7E19
+#define Ea44_Jpm 1.08E8
+
+/* R45: CO2(s) + Pt(s) -> CO(s) + O(s) */
+static const int  idx_site_r45[] = {IDX_O_Pt};
+static const real eps_r45[]      = {-4.5E7};
+#define NS_R45 1
+#define A45_k 3.7E20
+#define Ea45_Jpm 1.651E8
+
+/* R46: C(s) + O(s) -> CO(s) + Pt(s) */
+static const int  idx_site_r46[] = {IDX_CO_Pt};
+static const real eps_r46[]      = {-3.3E7};
+#define NS_R46 1
+#define A46_k 3.7E20
+#define Ea46_Jpm 0.0
+
+/* R47: CO(s) + Pt(s) -> C(s) + O(s) */
+static const int  idx_site_r47[] = {IDX_O_Pt};
+static const real eps_r47[]      = {-4.5E7};
+#define NS_R47 1
+#define A47_k 3.7E20
+#define Ea47_Jpm 2.185E8
+
+/* R49: NO(s) -> NO (Pt) */
+#define A49_k 1.0E16
+#define Ea49_Jpm 1.4E8
+
+/* R50: 2N(s) -> N2 (Pt) */
+static const int  idx_site_r50[] = {IDX_CO_Pt};
+static const real eps_r50[]      = {7.5E7};
+#define NS_R50 1
+#define A50_k 3.7E20
+#define B50_beta 0.0
+#define Ea50_Jpm 1.139E8
+
+/* R51: NO(s) + Pt(s) -> N(s) + O(s) */
+static const int  idx_site_r51[] = {IDX_CO_Pt};
+static const real eps_r51[]      = {-3.0E6};
+#define NS_R51 1
+#define A51_k 5.0E19
+#define Ea51_Jpm 1.078E8
+
+/* R52: N(s) + O(s) -> NO(s) + Pt(s) */
+static const int  idx_site_r52[] = {IDX_O_Pt};
+static const real eps_r52[]      = {4.5E7};
+#define NS_R52 1
+#define A52_k 3.7E20
+#define Ea52_Jpm 1.281E8
+
+/* R56: 2O(Rh) -> O2 */
+#define A56_k 3.0E20        /*miss, fixed*/
+#define B56_beta 0.0
+#define Ea56_Jpm 2.933E8
+
+/* R57: CO(Rh) -> CO */
+static const int  idx_site_r57[] = {IDX_CO_Rh, IDX_N_Rh};
+static const real eps_r57[]      = {1.88E7, 4.19E7};
+#define NS_R57 2
+#define A57_k 1.0E14
+#define B57_beta 0.0
+#define Ea57_Jpm 1.323E8
+
+/* R58: NO(Rh) -> NO */
+#define A58_k 5.0E13
+#define B58_beta 0.0
+#define Ea58_Jpm 1.089E8
+
+/* R59: 2N(Rh) -> N2 */
+static const int  idx_site_r59[] = {IDX_N_Rh};
+static const real eps_r59[]      = {1.67E7};
+#define NS_R59 1
+#define A59_k 1.11E18
+#define B59_beta 0.0
+#define Ea59_Jpm 1.369E8
+
+/* R60: CO(Rh) + O(Rh) -> CO2 + Rh(s) + Rh(s) */
+#define A60_k 3.7E19
+#define Ea60_Jpm 5.99E7
+
+/* R61: NO(Rh) + Rh(s) -> N(Rh) + O(Rh) */
+#define A61_k 2.22E21
+#define Ea61_Jpm 7.95E7
 /* ======================================================================= */
 /* Helper: Reaction 7 Base Rate & Eta Calculation (The Reference)          */
 /* ======================================================================= */
@@ -479,252 +647,980 @@ DEFINE_SR_RATE(chatterjee_pt_ads_des_flat, f, fthread, r, mw, yi, rr)
             IDX_NO, MW_NO, term_rh, Cv_R7_val, 0);
     }
     /* --- DESORPTION REACTIONS (Added from rev19, Flat Structure) --- */
-    // else if (STREQ(r->name, "reaction-8")) {
-    //     /* R8: 2O(s) -> O2 (Pt) */
-    //     real r7_dum, phi, eta;
-    //     reaction7_base_and_eta(c0, t0, Tw, yi, Cv_R7_val, &r7_dum, &phi, &eta);
-    //     const real k8 = k_surface_covdep(A8_k, B8_beta, Ea8_Jpm, Tw, idx_site_r8, val_null, eps_r8, NS_R8, yi);
-    //     const real theta_O = CLAMP01(yi[IDX_O_Pt]);
-    //     const real rate_base = k8 * theta_O * theta_O * SITE_DEN_Pt * SITE_DEN_Pt;
-    //     *rr = rate_base * Wash_F * eta;
+    else if (STREQ(r->name, "reaction-8")) {
+        /* R8: 2O(s) -> O2 (Pt) */
+        real r7_dum, phi, eta;
+        reaction7_base_and_eta(c0, t0, Tw, yi, Cv_R7_val, &r7_dum, &phi, &eta);
+        const real k8 = k_surface_covdep(A8_k, B8_beta, Ea8_Jpm, Tw, idx_site_r8, val_null, eps_r8, NS_R8, yi);
+        const real theta_O = CLAMP01(yi[IDX_O_Pt]);
+        const real rate_base = k8 * theta_O * theta_O * SITE_DEN_Pt * SITE_DEN_Pt;
+        *rr = rate_base * Wash_F * eta;
 
-    //     if(print_gate[8]==0) {
-    //         #if RP_NODE
-    //         if(myid==0) Message0("\n[r8] rate_base=%.6e | rate_wash=%.6e | rate_eta=%.6e (eta=%.3e)\n", rate_base, rate_base*Wash_F, *rr, eta);
-    //         #endif
-    //         #if RP_HOST
-    //         Message("\n[r8] rate_base=%.6e | rate_wash=%.6e | rate_eta=%.6e (eta=%.3e)\n", rate_base, rate_base*Wash_F, *rr, eta);
-    //         #endif
-    //         print_gate[8]=1;
-    //     }
-    // }
-    // else if (STREQ(r->name, "reaction-9")) {
-    //     /* R9: C3H6(s) -> C3H6 (Pt) */
-    //     real r7_dum, phi, eta;
-    //     reaction7_base_and_eta(c0, t0, Tw, yi, Cv_R7_val, &r7_dum, &phi, &eta);
-    //     const real k9 = k_surface_covdep(A9_k, B9_beta, Ea9_Jpm, Tw, idx_null, val_null, val_null, NS_R9, yi);
-    //     const real theta = CLAMP01(yi[IDX_C3H6_Pt]);
-    //     const real rate_base = k9 * theta * SITE_DEN_Pt;
-    //     *rr = rate_base * Wash_F * eta;
+        if(print_gate[8]==0) {
+            #if RP_NODE
+            if(myid==0) Message0("\n[r8] rate_base=%.6e | rate_wash=%.6e | rate_eta=%.6e (eta=%.3e)\n", rate_base, rate_base*Wash_F, *rr, eta);
+            #endif
+            #if RP_HOST
+            Message("\n[r8] rate_base=%.6e | rate_wash=%.6e | rate_eta=%.6e (eta=%.3e)\n", rate_base, rate_base*Wash_F, *rr, eta);
+            #endif
+            print_gate[8]=1;
+        }
+    }
+    else if (STREQ(r->name, "reaction-9")) {
+        /* R9: C3H6(s) -> C3H6 (Pt) */
+        real r7_dum, phi, eta;
+        reaction7_base_and_eta(c0, t0, Tw, yi, Cv_R7_val, &r7_dum, &phi, &eta);
+        const real k9 = k_surface_covdep(A9_k, B9_beta, Ea9_Jpm, Tw, idx_null, val_null, val_null, NS_R9, yi);
+        const real theta = CLAMP01(yi[IDX_C3H6_Pt]);
+        const real rate_base = k9 * theta * SITE_DEN_Pt;
+        *rr = rate_base * Wash_F * eta;
 
-    //     if(print_gate[9]==0) {
-    //         #if RP_NODE
-    //         if(myid==0) Message0("\n[r9] rate_base=%.6e | rate_wash=%.6e | rate_eta=%.6e (eta=%.3e)\n", rate_base, rate_base*Wash_F, *rr, eta);
-    //         #endif
-    //         #if RP_HOST
-    //         Message("\n[r9] rate_base=%.6e | rate_wash=%.6e | rate_eta=%.6e (eta=%.3e)\n", rate_base, rate_base*Wash_F, *rr, eta);
-    //         #endif
-    //         print_gate[9]=1;
-    //     }
-    // }
-    // else if (STREQ(r->name, "reaction-10")) {
-    //     /* R10 */
-    //     real r7_dum, phi, eta;
-    //     reaction7_base_and_eta(c0, t0, Tw, yi, Cv_R7_val, &r7_dum, &phi, &eta);
-    //     const real k10 = k_surface_covdep(A10_k, B10_beta, Ea10_Jpm, Tw, idx_null, val_null, val_null, NS_R10, yi);
-    //     const real thC3H5 = CLAMP01(yi[IDX_C3H5_Pt]);
-    //     const real thOH = CLAMP01(yi[IDX_OH_Pt]);
-    //     const real rate_base = k10 * thC3H5 * SITE_DEN_Pt * thOH * SITE_DEN_Pt;
-    //     *rr = rate_base * Wash_F * eta;
+        if(print_gate[9]==0) {
+            #if RP_NODE
+            if(myid==0) Message0("\n[r9] rate_base=%.6e | rate_wash=%.6e | rate_eta=%.6e (eta=%.3e)\n", rate_base, rate_base*Wash_F, *rr, eta);
+            #endif
+            #if RP_HOST
+            Message("\n[r9] rate_base=%.6e | rate_wash=%.6e | rate_eta=%.6e (eta=%.3e)\n", rate_base, rate_base*Wash_F, *rr, eta);
+            #endif
+            print_gate[9]=1;
+        }
+    }
+    else if (STREQ(r->name, "reaction-10")) {
+        /* R10 */
+        real r7_dum, phi, eta;
+        reaction7_base_and_eta(c0, t0, Tw, yi, Cv_R7_val, &r7_dum, &phi, &eta);
+        const real k10 = k_surface_covdep(A10_k, B10_beta, Ea10_Jpm, Tw, idx_null, val_null, val_null, NS_R10, yi);
+        const real thC3H5 = CLAMP01(yi[IDX_C3H5_Pt]);
+        const real thOH = CLAMP01(yi[IDX_OH_Pt]);
+        const real rate_base = k10 * thC3H5 * SITE_DEN_Pt * thOH * SITE_DEN_Pt;
+        *rr = rate_base * Wash_F * eta;
 
-    //     if(print_gate[10]==0) {
-    //         #if RP_NODE
-    //         if(myid==0) Message0("\n[r10] rate_base=%.6e | rate_wash=%.6e | rate_eta=%.6e (eta=%.3e)\n", rate_base, rate_base*Wash_F, *rr, eta);
-    //         #endif
-    //         #if RP_HOST
-    //         Message("\n[r10] rate_base=%.6e | rate_wash=%.6e | rate_eta=%.6e (eta=%.3e)\n", rate_base, rate_base*Wash_F, *rr, eta);
-    //         #endif
-    //         print_gate[10]=1;
-    //     }
-    // }
-    // else if (STREQ(r->name, "reaction-11")) {
-    //     /* R11: 2H(s) -> H2 (Pt) */
-    //     real r7_dum, phi, eta;
-    //     reaction7_base_and_eta(c0, t0, Tw, yi, Cv_R7_val, &r7_dum, &phi, &eta);
-    //     const real k11 = k_surface_covdep(A11_k, B11_beta, Ea11_Jpm, Tw, idx_site_r11, val_null, eps_r11, NS_R11, yi);
-    //     const real thH = CLAMP01(yi[IDX_H_Pt]);
-    //     const real rate_base = k11 * thH * thH * SITE_DEN_Pt * SITE_DEN_Pt;
-    //     *rr = rate_base * Wash_F * eta;
+        if(print_gate[10]==0) {
+            #if RP_NODE
+            if(myid==0) Message0("\n[r10] rate_base=%.6e | rate_wash=%.6e | rate_eta=%.6e (eta=%.3e)\n", rate_base, rate_base*Wash_F, *rr, eta);
+            #endif
+            #if RP_HOST
+            Message("\n[r10] rate_base=%.6e | rate_wash=%.6e | rate_eta=%.6e (eta=%.3e)\n", rate_base, rate_base*Wash_F, *rr, eta);
+            #endif
+            print_gate[10]=1;
+        }
+    }
+    else if (STREQ(r->name, "reaction-11")) {
+        /* R11: 2H(s) -> H2 (Pt) */
+        real r7_dum, phi, eta;
+        reaction7_base_and_eta(c0, t0, Tw, yi, Cv_R7_val, &r7_dum, &phi, &eta);
+        const real k11 = k_surface_covdep(A11_k, B11_beta, Ea11_Jpm, Tw, idx_site_r11, val_null, eps_r11, NS_R11, yi);
+        const real thH = CLAMP01(yi[IDX_H_Pt]);
+        const real rate_base = k11 * thH * thH * SITE_DEN_Pt * SITE_DEN_Pt;
+        *rr = rate_base * Wash_F * eta;
 
-    //     if(print_gate[11]==0) {
-    //         #if RP_NODE
-    //         if(myid==0) Message0("\n[r11] rate_base=%.6e | rate_wash=%.6e | rate_eta=%.6e (eta=%.3e)\n", rate_base, rate_base*Wash_F, *rr, eta);
-    //         #endif
-    //         #if RP_HOST
-    //         Message("\n[r11] rate_base=%.6e | rate_wash=%.6e | rate_eta=%.6e (eta=%.3e)\n", rate_base, rate_base*Wash_F, *rr, eta);
-    //         #endif
-    //         print_gate[11]=1;
-    //     }
-    // }
-    // else if (STREQ(r->name, "reaction-12")) {
-    //     /* R12: H2O(s) -> H2O (Pt) */
-    //     real r7_dum, phi, eta;
-    //     reaction7_base_and_eta(c0, t0, Tw, yi, Cv_R7_val, &r7_dum, &phi, &eta);
-    //     const real k12 = k_surface_covdep(A12_k, B12_beta, Ea12_Jpm, Tw, idx_null, val_null, val_null, NS_R12, yi);
-    //     const real thH2O = CLAMP01(yi[IDX_H2O_Pt]);
-    //     const real rate_base = k12 * thH2O * SITE_DEN_Pt;
-    //     *rr = rate_base * Wash_F * eta;
+        if(print_gate[11]==0) {
+            #if RP_NODE
+            if(myid==0) Message0("\n[r11] rate_base=%.6e | rate_wash=%.6e | rate_eta=%.6e (eta=%.3e)\n", rate_base, rate_base*Wash_F, *rr, eta);
+            #endif
+            #if RP_HOST
+            Message("\n[r11] rate_base=%.6e | rate_wash=%.6e | rate_eta=%.6e (eta=%.3e)\n", rate_base, rate_base*Wash_F, *rr, eta);
+            #endif
+            print_gate[11]=1;
+        }
+    }
+    else if (STREQ(r->name, "reaction-12")) {
+        /* R12: H2O(s) -> H2O (Pt) */
+        real r7_dum, phi, eta;
+        reaction7_base_and_eta(c0, t0, Tw, yi, Cv_R7_val, &r7_dum, &phi, &eta);
+        const real k12 = k_surface_covdep(A12_k, B12_beta, Ea12_Jpm, Tw, idx_null, val_null, val_null, NS_R12, yi);
+        const real thH2O = CLAMP01(yi[IDX_H2O_Pt]);
+        const real rate_base = k12 * thH2O * SITE_DEN_Pt;
+        *rr = rate_base * Wash_F * eta;
 
-    //     if(print_gate[12]==0) {
-    //         #if RP_NODE
-    //         if(myid==0) Message0("\n[r12] rate_base=%.6e | rate_wash=%.6e | rate_eta=%.6e (eta=%.3e)\n", rate_base, rate_base*Wash_F, *rr, eta);
-    //         #endif
-    //         #if RP_HOST
-    //         Message("\n[r12] rate_base=%.6e | rate_wash=%.6e | rate_eta=%.6e (eta=%.3e)\n", rate_base, rate_base*Wash_F, *rr, eta);
-    //         #endif
-    //         print_gate[12]=1;
-    //     }
-    // }
-    // else if (STREQ(r->name, "reaction-13")) {
-    //     /* R13: CO(s) -> CO (Pt) */
-    //     real r7_dum, phi, eta;
-    //     reaction7_base_and_eta(c0, t0, Tw, yi, Cv_R7_val, &r7_dum, &phi, &eta);
-    //     const real k13 = k_surface_covdep(A13_k, B13_beta, Ea13_Jpm, Tw, idx_site_r13, val_null, eps_r13, NS_R13, yi);
-    //     const real thCO = CLAMP01(yi[IDX_CO_Pt]);
-    //     const real rate_base = k13 * thCO * SITE_DEN_Pt;
-    //     *rr = rate_base * Wash_F * eta;
+        if(print_gate[12]==0) {
+            #if RP_NODE
+            if(myid==0) Message0("\n[r12] rate_base=%.6e | rate_wash=%.6e | rate_eta=%.6e (eta=%.3e)\n", rate_base, rate_base*Wash_F, *rr, eta);
+            #endif
+            #if RP_HOST
+            Message("\n[r12] rate_base=%.6e | rate_wash=%.6e | rate_eta=%.6e (eta=%.3e)\n", rate_base, rate_base*Wash_F, *rr, eta);
+            #endif
+            print_gate[12]=1;
+        }
+    }
+    else if (STREQ(r->name, "reaction-13")) {
+        /* R13: CO(s) -> CO (Pt) */
+        real r7_dum, phi, eta;
+        reaction7_base_and_eta(c0, t0, Tw, yi, Cv_R7_val, &r7_dum, &phi, &eta);
+        const real k13 = k_surface_covdep(A13_k, B13_beta, Ea13_Jpm, Tw, idx_site_r13, val_null, eps_r13, NS_R13, yi);
+        const real thCO = CLAMP01(yi[IDX_CO_Pt]);
+        const real rate_base = k13 * thCO * SITE_DEN_Pt;
+        *rr = rate_base * Wash_F * eta;
 
-    //     if(print_gate[13]==0) {
-    //         #if RP_NODE
-    //         if(myid==0) Message0("\n[r13] rate_base=%.6e | rate_wash=%.6e | rate_eta=%.6e (eta=%.3e)\n", rate_base, rate_base*Wash_F, *rr, eta);
-    //         #endif
-    //         #if RP_HOST
-    //         Message("\n[r13] rate_base=%.6e | rate_wash=%.6e | rate_eta=%.6e (eta=%.3e)\n", rate_base, rate_base*Wash_F, *rr, eta);
-    //         #endif
-    //         print_gate[13]=1;
-    //     }
-    // }
-    // else if (STREQ(r->name, "reaction-14")) {
-    //     /* R14: CO2(s) -> CO2 (Pt) */
-    //     real r7_dum, phi, eta;
-    //     reaction7_base_and_eta(c0, t0, Tw, yi, Cv_R7_val, &r7_dum, &phi, &eta);
-    //     const real k14 = k_surface_covdep(A14_k, B14_beta, Ea14_Jpm, Tw, idx_null, val_null, val_null, NS_R14, yi);
-    //     const real thCO2 = CLAMP01(yi[IDX_CO2_Pt]);
-    //     const real rate_base = k14 * thCO2 * SITE_DEN_Pt;
-    //     *rr = rate_base * Wash_F * eta;
+        if(print_gate[13]==0) {
+            #if RP_NODE
+            if(myid==0) Message0("\n[r13] rate_base=%.6e | rate_wash=%.6e | rate_eta=%.6e (eta=%.3e)\n", rate_base, rate_base*Wash_F, *rr, eta);
+            #endif
+            #if RP_HOST
+            Message("\n[r13] rate_base=%.6e | rate_wash=%.6e | rate_eta=%.6e (eta=%.3e)\n", rate_base, rate_base*Wash_F, *rr, eta);
+            #endif
+            print_gate[13]=1;
+        }
+    }
+    else if (STREQ(r->name, "reaction-14")) {
+        /* R14: CO2(s) -> CO2 (Pt) */
+        real r7_dum, phi, eta;
+        reaction7_base_and_eta(c0, t0, Tw, yi, Cv_R7_val, &r7_dum, &phi, &eta);
+        const real k14 = k_surface_covdep(A14_k, B14_beta, Ea14_Jpm, Tw, idx_null, val_null, val_null, NS_R14, yi);
+        const real thCO2 = CLAMP01(yi[IDX_CO2_Pt]);
+        const real rate_base = k14 * thCO2 * SITE_DEN_Pt;
+        *rr = rate_base * Wash_F * eta;
 
-    //     if(print_gate[14]==0) {
-    //         #if RP_NODE
-    //         if(myid==0) Message0("\n[r14] rate_base=%.6e | rate_wash=%.6e | rate_eta=%.6e (eta=%.3e)\n", rate_base, rate_base*Wash_F, *rr, eta);
-    //         #endif
-    //         #if RP_HOST
-    //         Message("\n[r14] rate_base=%.6e | rate_wash=%.6e | rate_eta=%.6e (eta=%.3e)\n", rate_base, rate_base*Wash_F, *rr, eta);
-    //         #endif
-    //         print_gate[14]=1;
-    //     }
-    // }
-    // else if (STREQ(r->name, "reaction-49")) {
-    //     /* R49: NO(s) -> NO (Pt) */
-    //     real r7_dum, phi, eta;
-    //     reaction7_base_and_eta(c0, t0, Tw, yi, Cv_R7_val, &r7_dum, &phi, &eta);
-    //     const real k49 = k_surface_covdep(A49_k, 0.0, Ea49_Jpm, Tw, idx_null, val_null, val_null, 0, yi);
-    //     const real thNO = CLAMP01(yi[IDX_NO_Pt]);
-    //     const real rate_base = k49 * thNO * SITE_DEN_Pt;
-    //     *rr = rate_base * Wash_F * eta;
+        if(print_gate[14]==0) {
+            #if RP_NODE
+            if(myid==0) Message0("\n[r14] rate_base=%.6e | rate_wash=%.6e | rate_eta=%.6e (eta=%.3e)\n", rate_base, rate_base*Wash_F, *rr, eta);
+            #endif
+            #if RP_HOST
+            Message("\n[r14] rate_base=%.6e | rate_wash=%.6e | rate_eta=%.6e (eta=%.3e)\n", rate_base, rate_base*Wash_F, *rr, eta);
+            #endif
+            print_gate[14]=1;
+        }
+    }
 
-    //     if(print_gate[49]==0) {
-    //         #if RP_NODE
-    //         if(myid==0) Message0("\n[r49] rate_base=%.6e | rate_wash=%.6e | rate_eta=%.6e (eta=%.3e)\n", rate_base, rate_base*Wash_F, *rr, eta);
-    //         #endif
-    //         #if RP_HOST
-    //         Message("\n[r49] rate_base=%.6e | rate_wash=%.6e | rate_eta=%.6e (eta=%.3e)\n", rate_base, rate_base*Wash_F, *rr, eta);
-    //         #endif
-    //         print_gate[49]=1;
-    //     }
-    // }
-    // else if (STREQ(r->name, "reaction-50")) {
-    //     /* R50: 2N(s) -> N2 (Pt) */
-    //     real r7_dum, phi, eta;
-    //     reaction7_base_and_eta(c0, t0, Tw, yi, Cv_R7_val, &r7_dum, &phi, &eta);
-    //     const real k50 = k_surface_covdep(A50_k, B50_beta, Ea50_Jpm, Tw, idx_site_r50, val_null, eps_r50, NS_R50, yi);
-    //     const real thN = CLAMP01(yi[IDX_N_Pt]);
-    //     const real rate_base = k50 * thN * thN * SITE_DEN_Pt * SITE_DEN_Pt;
-    //     *rr = rate_base * Wash_F * eta;
+    else if (STREQ(r->name, "reaction-15")) {
+        /* R15: C3H5(s) + 5O(s) -> 5OH(s) + 3C(s) */
+        real r7_dum, phi, eta;
+        reaction7_base_and_eta(c0, t0, Tw, yi, Cv_R7_val, &r7_dum, &phi, &eta);
+        const real k15 = k_surface_covdep(A15_k, 0.0, Ea15_Jpm, Tw, idx_null, val_null, val_null, 0, yi);
+        const real thC3H5 = CLAMP01(yi[IDX_C3H5_Pt]);
+        const real thO = CLAMP01(yi[IDX_O_Pt]);
+        const real term_O = MAX(EPS, SITE_DEN_Pt * thO);
+        const real rate_base = k15 * thC3H5 * SITE_DEN_Pt * pow(term_O, 5.0);
+        *rr = rate_base * Wash_F * eta;
 
-    //     if(print_gate[50]==0) {
-    //         #if RP_NODE
-    //         if(myid==0) Message0("\n[r50] rate_base=%.6e | rate_wash=%.6e | rate_eta=%.6e (eta=%.3e)\n", rate_base, rate_base*Wash_F, *rr, eta);
-    //         #endif
-    //         #if RP_HOST
-    //         Message("\n[r50] rate_base=%.6e | rate_wash=%.6e | rate_eta=%.6e (eta=%.3e)\n", rate_base, rate_base*Wash_F, *rr, eta);
-    //         #endif
-    //         print_gate[50]=1;
-    //     }
-    // }
-    // else if (STREQ(r->name, "reaction-56")) {
-    //     /* R56: 2O(Rh) -> O2 */
-    //     real r7_dum, phi, eta;
-    //     reaction7_base_and_eta(c0, t0, Tw, yi, Cv_R7_val, &r7_dum, &phi, &eta);
-    //     const real k56 = k_surface_covdep(A56_k, B56_beta, Ea56_Jpm, Tw, idx_null, val_null, val_null, 0, yi);
-    //     const real thO_rh = CLAMP01(yi[IDX_O_Rh]);
-    //     const real rate_base = k56 * thO_rh * thO_rh * SITE_DEN_Rh * SITE_DEN_Rh;
-    //     *rr = rate_base * Wash_F * eta;
+        if (print_gate[15] == 0) {
+            #if RP_NODE
+            if (myid == 0) Message0("\n[r15] rate_base=%.6e | rate_wash=%.6e | rate_eta=%.6e (eta=%.3e)\n", rate_base, rate_base*Wash_F, *rr, eta);
+            #endif
+            #if RP_HOST
+            Message("\n[r15] rate_base=%.6e | rate_wash=%.6e | rate_eta=%.6e (eta=%.3e)\n", rate_base, rate_base*Wash_F, *rr, eta);
+            #endif
+            print_gate[15] = 1;
+        }
+    }
+    else if (STREQ(r->name, "reaction-16")) {
+        /* R16: C3H6(s) + H(s) -> CC2H5(s) */
+        real r7_dum, phi, eta;
+        reaction7_base_and_eta(c0, t0, Tw, yi, Cv_R7_val, &r7_dum, &phi, &eta);
+        const real k16 = k_surface_covdep(A16_k, 0.0, Ea16_Jpm, Tw, idx_null, val_null, val_null, 0, yi);
+        const real thC3H6 = CLAMP01(yi[IDX_C3H6_Pt]);
+        const real thH = CLAMP01(yi[IDX_H_Pt]);
+        const real rate_base = k16 * thC3H6 * SITE_DEN_Pt * thH * SITE_DEN_Pt;
+        *rr = rate_base * Wash_F * eta;
 
-    //     if(print_gate[56]==0) {
-    //         #if RP_NODE
-    //         if(myid==0) Message0("\n[r56] rate_base=%.6e | rate_wash=%.6e | rate_eta=%.6e (eta=%.3e)\n", rate_base, rate_base*Wash_F, *rr, eta);
-    //         #endif
-    //         #if RP_HOST
-    //         Message("\n[r56] rate_base=%.6e | rate_wash=%.6e | rate_eta=%.6e (eta=%.3e)\n", rate_base, rate_base*Wash_F, *rr, eta);
-    //         #endif
-    //         print_gate[56]=1;
-    //     }
-    // }
-    // else if (STREQ(r->name, "reaction-57")) {
-    //     /* R57: CO(Rh) -> CO */
-    //     real r7_dum, phi, eta;
-    //     reaction7_base_and_eta(c0, t0, Tw, yi, Cv_R7_val, &r7_dum, &phi, &eta);
-    //     const real k57 = k_surface_covdep(A57_k, B57_beta, Ea57_Jpm, Tw, idx_site_r57, val_null, eps_r57, NS_R57, yi);
-    //     const real thCO_rh = CLAMP01(yi[IDX_CO_Rh]);
-    //     const real rate_base = k57 * thCO_rh * SITE_DEN_Rh;
-    //     *rr = rate_base * Wash_F * eta;
+        if (print_gate[16] == 0) {
+            #if RP_NODE
+            if (myid == 0) Message0("\n[r16] rate_base=%.6e | rate_wash=%.6e | rate_eta=%.6e (eta=%.3e)\n", rate_base, rate_base*Wash_F, *rr, eta);
+            #endif
+            #if RP_HOST
+            Message("\n[r16] rate_base=%.6e | rate_wash=%.6e | rate_eta=%.6e (eta=%.3e)\n", rate_base, rate_base*Wash_F, *rr, eta);
+            #endif
+            print_gate[16] = 1;
+        }
+    }
+    else if (STREQ(r->name, "reaction-17")) {
+        /* R17: CC2H5(s) + H(s) -> C3H6(s) */
+        real r7_dum, phi, eta;
+        reaction7_base_and_eta(c0, t0, Tw, yi, Cv_R7_val, &r7_dum, &phi, &eta);
+        const real k17 = k_surface_covdep(A17_k, 0.0, Ea17_Jpm, Tw, idx_null, val_null, val_null, 0, yi);
+        const real thCC2H5 = CLAMP01(yi[IDX_CC2H5_Pt]);
+        const real thH = CLAMP01(yi[IDX_H_Pt]);
+        const real rate_base = k17 * thCC2H5 * SITE_DEN_Pt * thH * SITE_DEN_Pt;
+        *rr = rate_base * Wash_F * eta;
 
-    //     if(print_gate[57]==0) {
-    //         #if RP_NODE
-    //         if(myid==0) Message0("\n[r57] rate_base=%.6e | rate_wash=%.6e | rate_eta=%.6e (eta=%.3e)\n", rate_base, rate_base*Wash_F, *rr, eta);
-    //         #endif
-    //         #if RP_HOST
-    //         Message("\n[r57] rate_base=%.6e | rate_wash=%.6e | rate_eta=%.6e (eta=%.3e)\n", rate_base, rate_base*Wash_F, *rr, eta);
-    //         #endif
-    //         print_gate[57]=1;
-    //     }
-    // }
-    // else if (STREQ(r->name, "reaction-58")) {
-    //     /* R58: NO(Rh) -> NO */
-    //     real r7_dum, phi, eta;
-    //     reaction7_base_and_eta(c0, t0, Tw, yi, Cv_R7_val, &r7_dum, &phi, &eta);
-    //     const real k58 = k_surface_covdep(A58_k, B58_beta, Ea58_Jpm, Tw, idx_null, val_null, val_null, 0, yi);
-    //     const real thNO_rh = CLAMP01(yi[IDX_NO_Rh]);
-    //     const real rate_base = k58 * thNO_rh * SITE_DEN_Rh;
-    //     *rr = rate_base * Wash_F * eta;
+        if (print_gate[17] == 0) {
+            #if RP_NODE
+            if (myid == 0) Message0("\n[r17] rate_base=%.6e | rate_wash=%.6e | rate_eta=%.6e (eta=%.3e)\n", rate_base, rate_base*Wash_F, *rr, eta);
+            #endif
+            #if RP_HOST
+            Message("\n[r17] rate_base=%.6e | rate_wash=%.6e | rate_eta=%.6e (eta=%.3e)\n", rate_base, rate_base*Wash_F, *rr, eta);
+            #endif
+            print_gate[17] = 1;
+        }
+    }
+    else if (STREQ(r->name, "reaction-18")) {
+        /* R18: CC2H5(s) + Pt(s) -> C2H3(s) + CH2(s) */
+        real r7_dum, phi, eta;
+        reaction7_base_and_eta(c0, t0, Tw, yi, Cv_R7_val, &r7_dum, &phi, &eta);
+        const real k18 = k_surface_covdep(A18_k, 0.0, Ea18_Jpm, Tw, idx_null, val_null, val_null, 0, yi);
+        const real thCC2H5 = CLAMP01(yi[IDX_CC2H5_Pt]);
+        const real rate_base = k18 * thCC2H5 * SITE_DEN_Pt * term_pt;
+        *rr = rate_base * Wash_F * eta;
 
-    //     if(print_gate[58]==0) {
-    //         #if RP_NODE
-    //         if(myid==0) Message0("\n[r58] rate_base=%.6e | rate_wash=%.6e | rate_eta=%.6e (eta=%.3e)\n", rate_base, rate_base*Wash_F, *rr, eta);
-    //         #endif
-    //         #if RP_HOST
-    //         Message("\n[r58] rate_base=%.6e | rate_wash=%.6e | rate_eta=%.6e (eta=%.3e)\n", rate_base, rate_base*Wash_F, *rr, eta);
-    //         #endif
-    //         print_gate[58]=1;
-    //     }
-    // }
-    // else if (STREQ(r->name, "reaction-59")) {
-    //     /* R59: 2N(Rh) -> N2 */
-    //     real r7_dum, phi, eta;
-    //     reaction7_base_and_eta(c0, t0, Tw, yi, Cv_R7_val, &r7_dum, &phi, &eta);
-    //     const real k59 = k_surface_covdep(A59_k, B59_beta, Ea59_Jpm, Tw, idx_site_r59, val_null, eps_r59, NS_R59, yi);
-    //     const real thN_rh = CLAMP01(yi[IDX_N_Rh]);
-    //     const real rate_base = k59 * thN_rh * thN_rh * SITE_DEN_Rh * SITE_DEN_Rh;
-    //     *rr = rate_base * Wash_F * eta;
+        if (print_gate[18] == 0) {
+            #if RP_NODE
+            if (myid == 0) Message0("\n[r18] rate_base=%.6e | rate_wash=%.6e | rate_eta=%.6e (eta=%.3e)\n", rate_base, rate_base*Wash_F, *rr, eta);
+            #endif
+            #if RP_HOST
+            Message("\n[r18] rate_base=%.6e | rate_wash=%.6e | rate_eta=%.6e (eta=%.3e)\n", rate_base, rate_base*Wash_F, *rr, eta);
+            #endif
+            print_gate[18] = 1;
+        }
+    }
+    else if (STREQ(r->name, "reaction-19")) {
+        /* R19: C2H3(s) + CH2(s) + Pt(s) -> CC2H5(s) */
+        real r7_dum, phi, eta;
+        reaction7_base_and_eta(c0, t0, Tw, yi, Cv_R7_val, &r7_dum, &phi, &eta);
+        const real k19 = k_surface_covdep(A19_k, 0.0, Ea19_Jpm, Tw, idx_null, val_null, val_null, 0, yi);
+        const real thC2H3 = CLAMP01(yi[IDX_C2H3_Pt]);
+        const real thCH2 = CLAMP01(yi[IDX_CH2_Pt]);
+        const real rate_base = k19 * thC2H3 * SITE_DEN_Pt * thCH2 * SITE_DEN_Pt;
+        *rr = rate_base * Wash_F * eta;
 
-    //     if(print_gate[59]==0) {
-    //         #if RP_NODE
-    //         if(myid==0) Message0("\n[r59] rate_base=%.6e | rate_wash=%.6e | rate_eta=%.6e (eta=%.3e)\n", rate_base, rate_base*Wash_F, *rr, eta);
-    //         #endif
-    //         #if RP_HOST
-    //         Message("\n[r59] rate_base=%.6e | rate_wash=%.6e | rate_eta=%.6e (eta=%.3e)\n", rate_base, rate_base*Wash_F, *rr, eta);
-    //         #endif
-    //         print_gate[59]=1;
-    //     }
-    // }
+        if (print_gate[19] == 0) {
+            #if RP_NODE
+            if (myid == 0) Message0("\n[r19] rate_base=%.6e | rate_wash=%.6e | rate_eta=%.6e (eta=%.3e)\n", rate_base, rate_base*Wash_F, *rr, eta);
+            #endif
+            #if RP_HOST
+            Message("\n[r19] rate_base=%.6e | rate_wash=%.6e | rate_eta=%.6e (eta=%.3e)\n", rate_base, rate_base*Wash_F, *rr, eta);
+            #endif
+            print_gate[19] = 1;
+        }
+    }
+    else if (STREQ(r->name, "reaction-20")) {
+        /* R20: C2H3(s) + Pt(s) -> CH3(s) + C(s) */
+        real r7_dum, phi, eta;
+        reaction7_base_and_eta(c0, t0, Tw, yi, Cv_R7_val, &r7_dum, &phi, &eta);
+        const real k20 = k_surface_covdep(A20_k, 0.0, Ea20_Jpm, Tw, idx_null, val_null, val_null, 0, yi);
+        const real thC2H3 = CLAMP01(yi[IDX_C2H3_Pt]);
+        const real rate_base = k20 * thC2H3 * SITE_DEN_Pt * term_pt;
+        *rr = rate_base * Wash_F * eta;
+
+        if (print_gate[20] == 0) {
+            #if RP_NODE
+            if (myid == 0) Message0("\n[r20] rate_base=%.6e | rate_wash=%.6e | rate_eta=%.6e (eta=%.3e)\n", rate_base, rate_base*Wash_F, *rr, eta);
+            #endif
+            #if RP_HOST
+            Message("\n[r20] rate_base=%.6e | rate_wash=%.6e | rate_eta=%.6e (eta=%.3e)\n", rate_base, rate_base*Wash_F, *rr, eta);
+            #endif
+            print_gate[20] = 1;
+        }
+    }
+    else if (STREQ(r->name, "reaction-21")) {
+        /* R21: CH3(s) + C(s) -> C2H3(s) + Pt(s) */
+        real r7_dum, phi, eta;
+        reaction7_base_and_eta(c0, t0, Tw, yi, Cv_R7_val, &r7_dum, &phi, &eta);
+        const real k21 = k_surface_covdep(A21_k, 0.0, Ea21_Jpm, Tw, idx_null, val_null, val_null, 0, yi);
+        const real thCH3 = CLAMP01(yi[IDX_CH3_Pt]);
+        const real thC = CLAMP01(yi[IDX_C_Pt]);
+        const real rate_base = k21 * thCH3 * SITE_DEN_Pt * thC * SITE_DEN_Pt;
+        *rr = rate_base * Wash_F * eta;
+
+        if (print_gate[21] == 0) {
+            #if RP_NODE
+            if (myid == 0) Message0("\n[r21] rate_base=%.6e | rate_wash=%.6e | rate_eta=%.6e (eta=%.3e)\n", rate_base, rate_base*Wash_F, *rr, eta);
+            #endif
+            #if RP_HOST
+            Message("\n[r21] rate_base=%.6e | rate_wash=%.6e | rate_eta=%.6e (eta=%.3e)\n", rate_base, rate_base*Wash_F, *rr, eta);
+            #endif
+            print_gate[21] = 1;
+        }
+    }
+    else if (STREQ(r->name, "reaction-22")) {
+        /* R22: CH3(s) + Pt(s) -> CH2(s) + H(s) */
+        real r7_dum, phi, eta;
+        reaction7_base_and_eta(c0, t0, Tw, yi, Cv_R7_val, &r7_dum, &phi, &eta);
+        const real k22 = k_surface_covdep(A22_k, 0.0, Ea22_Jpm, Tw, idx_null, val_null, val_null, 0, yi);
+        const real thCH3 = CLAMP01(yi[IDX_CH3_Pt]);
+        const real rate_base = k22 * thCH3 * SITE_DEN_Pt * term_pt;
+        *rr = rate_base * Wash_F * eta;
+
+        if (print_gate[22] == 0) {
+            #if RP_NODE
+            if (myid == 0) Message0("\n[r22] rate_base=%.6e | rate_wash=%.6e | rate_eta=%.6e (eta=%.3e)\n", rate_base, rate_base*Wash_F, *rr, eta);
+            #endif
+            #if RP_HOST
+            Message("\n[r22] rate_base=%.6e | rate_wash=%.6e | rate_eta=%.6e (eta=%.3e)\n", rate_base, rate_base*Wash_F, *rr, eta);
+            #endif
+            print_gate[22] = 1;
+        }
+    }
+    else if (STREQ(r->name, "reaction-23")) {
+        /* R23: CH2(s) + H(s) -> CH3(s) + Pt(s) */
+        real r7_dum, phi, eta;
+        reaction7_base_and_eta(c0, t0, Tw, yi, Cv_R7_val, &r7_dum, &phi, &eta);
+        const real k23 = k_surface_covdep(A23_k, 0.0, Ea23_Jpm, Tw, idx_null, val_null, val_null, 0, yi);
+        const real thCH2 = CLAMP01(yi[IDX_CH2_Pt]);
+        const real thH = CLAMP01(yi[IDX_H_Pt]);
+        const real rate_base = k23 * thCH2 * SITE_DEN_Pt * thH * SITE_DEN_Pt;
+        *rr = rate_base * Wash_F * eta;
+
+        if (print_gate[23] == 0) {
+            #if RP_NODE
+            if (myid == 0) Message0("\n[r23] rate_base=%.6e | rate_wash=%.6e | rate_eta=%.6e (eta=%.3e)\n", rate_base, rate_base*Wash_F, *rr, eta);
+            #endif
+            #if RP_HOST
+            Message("\n[r23] rate_base=%.6e | rate_wash=%.6e | rate_eta=%.6e (eta=%.3e)\n", rate_base, rate_base*Wash_F, *rr, eta);
+            #endif
+            print_gate[23] = 1;
+        }
+    }
+    else if (STREQ(r->name, "reaction-24")) {
+        /* R24: CH2(s) + Pt(s) -> CH(s) + H(s) */
+        real r7_dum, phi, eta;
+        reaction7_base_and_eta(c0, t0, Tw, yi, Cv_R7_val, &r7_dum, &phi, &eta);
+        const real k24 = k_surface_covdep(A24_k, 0.0, Ea24_Jpm, Tw, idx_null, val_null, val_null, 0, yi);
+        const real thCH2 = CLAMP01(yi[IDX_CH2_Pt]);
+        const real rate_base = k24 * thCH2 * SITE_DEN_Pt * term_pt;
+        *rr = rate_base * Wash_F * eta;
+
+        if (print_gate[24] == 0) {
+            #if RP_NODE
+            if (myid == 0) Message0("\n[r24] rate_base=%.6e | rate_wash=%.6e | rate_eta=%.6e (eta=%.3e)\n", rate_base, rate_base*Wash_F, *rr, eta);
+            #endif
+            #if RP_HOST
+            Message("\n[r24] rate_base=%.6e | rate_wash=%.6e | rate_eta=%.6e (eta=%.3e)\n", rate_base, rate_base*Wash_F, *rr, eta);
+            #endif
+            print_gate[24] = 1;
+        }
+    }
+    else if (STREQ(r->name, "reaction-25")) {
+        /* R25: CH(s) + H(s) -> CH2(s) + Pt(s) */
+        real r7_dum, phi, eta;
+        reaction7_base_and_eta(c0, t0, Tw, yi, Cv_R7_val, &r7_dum, &phi, &eta);
+        const real k25 = k_surface_covdep(A25_k, 0.0, Ea25_Jpm, Tw, idx_null, val_null, val_null, 0, yi);
+        const real thCH = CLAMP01(yi[IDX_CH_Pt]);
+        const real thH = CLAMP01(yi[IDX_H_Pt]);
+        const real rate_base = k25 * thCH * SITE_DEN_Pt * thH * SITE_DEN_Pt;
+        *rr = rate_base * Wash_F * eta;
+
+        if (print_gate[25] == 0) {
+            #if RP_NODE
+            if (myid == 0) Message0("\n[r25] rate_base=%.6e | rate_wash=%.6e | rate_eta=%.6e (eta=%.3e)\n", rate_base, rate_base*Wash_F, *rr, eta);
+            #endif
+            #if RP_HOST
+            Message("\n[r25] rate_base=%.6e | rate_wash=%.6e | rate_eta=%.6e (eta=%.3e)\n", rate_base, rate_base*Wash_F, *rr, eta);
+            #endif
+            print_gate[25] = 1;
+        }
+    }
+    else if (STREQ(r->name, "reaction-26")) {
+        /* R26: CH(s) + Pt(s) -> C(s) + H(s) */
+        real r7_dum, phi, eta;
+        reaction7_base_and_eta(c0, t0, Tw, yi, Cv_R7_val, &r7_dum, &phi, &eta);
+        const real k26 = k_surface_covdep(A26_k, 0.0, Ea26_Jpm, Tw, idx_null, val_null, val_null, 0, yi);
+        const real thCH = CLAMP01(yi[IDX_CH_Pt]);
+        const real rate_base = k26 * thCH * SITE_DEN_Pt * term_pt;
+        *rr = rate_base * Wash_F * eta;
+
+        if (print_gate[26] == 0) {
+            #if RP_NODE
+            if (myid == 0) Message0("\n[r26] rate_base=%.6e | rate_wash=%.6e | rate_eta=%.6e (eta=%.3e)\n", rate_base, rate_base*Wash_F, *rr, eta);
+            #endif
+            #if RP_HOST
+            Message("\n[r26] rate_base=%.6e | rate_wash=%.6e | rate_eta=%.6e (eta=%.3e)\n", rate_base, rate_base*Wash_F, *rr, eta);
+            #endif
+            print_gate[26] = 1;
+        }
+    }
+    else if (STREQ(r->name, "reaction-27")) {
+        /* R27: C(s) + H(s) -> CH(s) + Pt(s) */
+        real r7_dum, phi, eta;
+        reaction7_base_and_eta(c0, t0, Tw, yi, Cv_R7_val, &r7_dum, &phi, &eta);
+        const real k27 = k_surface_covdep(A27_k, 0.0, Ea27_Jpm, Tw, idx_null, val_null, val_null, 0, yi);
+        const real thC = CLAMP01(yi[IDX_C_Pt]);
+        const real thH = CLAMP01(yi[IDX_H_Pt]);
+        const real rate_base = k27 * thC * SITE_DEN_Pt * thH * SITE_DEN_Pt;
+        *rr = rate_base * Wash_F * eta;
+
+        if (print_gate[27] == 0) {
+            #if RP_NODE
+            if (myid == 0) Message0("\n[r27] rate_base=%.6e | rate_wash=%.6e | rate_eta=%.6e (eta=%.3e)\n", rate_base, rate_base*Wash_F, *rr, eta);
+            #endif
+            #if RP_HOST
+            Message("\n[r27] rate_base=%.6e | rate_wash=%.6e | rate_eta=%.6e (eta=%.3e)\n", rate_base, rate_base*Wash_F, *rr, eta);
+            #endif
+            print_gate[27] = 1;
+        }
+    }
+    else if (STREQ(r->name, "reaction-28")) {
+        /* R28: C2H3(s) + O(s) -> Pt(s) + CH3CO(s) */
+        real r7_dum, phi, eta;
+        reaction7_base_and_eta(c0, t0, Tw, yi, Cv_R7_val, &r7_dum, &phi, &eta);
+        const real k28 = k_surface_covdep(A28_k, 0.0, Ea28_Jpm, Tw, idx_null, val_null, val_null, 0, yi);
+        const real thC2H3 = CLAMP01(yi[IDX_C2H3_Pt]);
+        const real thO = CLAMP01(yi[IDX_O_Pt]);
+        const real rate_base = k28 * thC2H3 * SITE_DEN_Pt * thO * SITE_DEN_Pt;
+        *rr = rate_base * Wash_F * eta;
+
+        if (print_gate[28] == 0) {
+            #if RP_NODE
+            if (myid == 0) Message0("\n[r28] rate_base=%.6e | rate_wash=%.6e | rate_eta=%.6e (eta=%.3e)\n", rate_base, rate_base*Wash_F, *rr, eta);
+            #endif
+            #if RP_HOST
+            Message("\n[r28] rate_base=%.6e | rate_wash=%.6e | rate_eta=%.6e (eta=%.3e)\n", rate_base, rate_base*Wash_F, *rr, eta);
+            #endif
+            print_gate[28] = 1;
+        }
+    }
+    else if (STREQ(r->name, "reaction-29")) {
+        /* R29: CH3CO(s) + Pt(s) -> C2H3(s) + O(s) */
+        real r7_dum, phi, eta;
+        reaction7_base_and_eta(c0, t0, Tw, yi, Cv_R7_val, &r7_dum, &phi, &eta);
+        const real k29 = k_surface_covdep(A29_k, 0.0, Ea29_Jpm, Tw, idx_site_r29, val_null, eps_r29, NS_R29, yi);
+        const real thCH3CO = CLAMP01(yi[IDX_CH3CO_Pt]);
+        const real rate_base = k29 * thCH3CO * SITE_DEN_Pt * term_pt;
+        *rr = rate_base * Wash_F * eta;
+
+        if (print_gate[29] == 0) {
+            #if RP_NODE
+            if (myid == 0) Message0("\n[r29] rate_base=%.6e | rate_wash=%.6e | rate_eta=%.6e (eta=%.3e)\n", rate_base, rate_base*Wash_F, *rr, eta);
+            #endif
+            #if RP_HOST
+            Message("\n[r29] rate_base=%.6e | rate_wash=%.6e | rate_eta=%.6e (eta=%.3e)\n", rate_base, rate_base*Wash_F, *rr, eta);
+            #endif
+            print_gate[29] = 1;
+        }
+    }
+    else if (STREQ(r->name, "reaction-30")) {
+        /* R30: CH3(s) + CO(s) -> Pt(s) + CH3CO(s) */
+        real r7_dum, phi, eta;
+        reaction7_base_and_eta(c0, t0, Tw, yi, Cv_R7_val, &r7_dum, &phi, &eta);
+        const real k30 = k_surface_covdep(A30_k, 0.0, Ea30_Jpm, Tw, idx_null, val_null, val_null, 0, yi);
+        const real thCH3 = CLAMP01(yi[IDX_CH3_Pt]);
+        const real thCO = CLAMP01(yi[IDX_CO_Pt]);
+        const real rate_base = k30 * thCH3 * SITE_DEN_Pt * thCO * SITE_DEN_Pt;
+        *rr = rate_base * Wash_F * eta;
+
+        if (print_gate[30] == 0) {
+            #if RP_NODE
+            if (myid == 0) Message0("\n[r30] rate_base=%.6e | rate_wash=%.6e | rate_eta=%.6e (eta=%.3e)\n", rate_base, rate_base*Wash_F, *rr, eta);
+            #endif
+            #if RP_HOST
+            Message("\n[r30] rate_base=%.6e | rate_wash=%.6e | rate_eta=%.6e (eta=%.3e)\n", rate_base, rate_base*Wash_F, *rr, eta);
+            #endif
+            print_gate[30] = 1;
+        }
+    }
+    else if (STREQ(r->name, "reaction-31")) {
+        /* R31: CH3CO(s) + Pt(s) -> CH3(s) + CO(s) */
+        real r7_dum, phi, eta;
+        reaction7_base_and_eta(c0, t0, Tw, yi, Cv_R7_val, &r7_dum, &phi, &eta);
+        const real k31 = k_surface_covdep(A31_k, 0.0, Ea31_Jpm, Tw, idx_null, val_null, val_null, 0, yi);
+        const real thCH3CO = CLAMP01(yi[IDX_CH3CO_Pt]);
+        const real rate_base = k31 * thCH3CO * SITE_DEN_Pt * term_pt;
+        *rr = rate_base * Wash_F * eta;
+
+        if (print_gate[31] == 0) {
+            #if RP_NODE
+            if (myid == 0) Message0("\n[r31] rate_base=%.6e | rate_wash=%.6e | rate_eta=%.6e (eta=%.3e)\n", rate_base, rate_base*Wash_F, *rr, eta);
+            #endif
+            #if RP_HOST
+            Message("\n[r31] rate_base=%.6e | rate_wash=%.6e | rate_eta=%.6e (eta=%.3e)\n", rate_base, rate_base*Wash_F, *rr, eta);
+            #endif
+            print_gate[31] = 1;
+        }
+    }
+    else if (STREQ(r->name, "reaction-32")) {
+        /* R32: CH3(s) + O(s) -> CH2(s) + OH(s) */
+        real r7_dum, phi, eta;
+        reaction7_base_and_eta(c0, t0, Tw, yi, Cv_R7_val, &r7_dum, &phi, &eta);
+        const real k32 = k_surface_covdep(A32_k, 0.0, Ea32_Jpm, Tw, idx_null, val_null, val_null, 0, yi);
+        const real thCH3 = CLAMP01(yi[IDX_CH3_Pt]);
+        const real thO = CLAMP01(yi[IDX_O_Pt]);
+        const real rate_base = k32 * thCH3 * SITE_DEN_Pt * thO * SITE_DEN_Pt;
+        *rr = rate_base * Wash_F * eta;
+
+        if (print_gate[32] == 0) {
+            #if RP_NODE
+            if (myid == 0) Message0("\n[r32] rate_base=%.6e | rate_wash=%.6e | rate_eta=%.6e (eta=%.3e)\n", rate_base, rate_base*Wash_F, *rr, eta);
+            #endif
+            #if RP_HOST
+            Message("\n[r32] rate_base=%.6e | rate_wash=%.6e | rate_eta=%.6e (eta=%.3e)\n", rate_base, rate_base*Wash_F, *rr, eta);
+            #endif
+            print_gate[32] = 1;
+        }
+    }
+    else if (STREQ(r->name, "reaction-33")) {
+        /* R33: CH2(s) + OH(s) -> CH3(s) + O(s) */
+        real r7_dum, phi, eta;
+        reaction7_base_and_eta(c0, t0, Tw, yi, Cv_R7_val, &r7_dum, &phi, &eta);
+        const real k33 = k_surface_covdep(A33_k, 0.0, Ea33_Jpm, Tw, idx_null, val_null, val_null, 0, yi);
+        const real thCH2 = CLAMP01(yi[IDX_CH2_Pt]);
+        const real thOH = CLAMP01(yi[IDX_OH_Pt]);
+        const real rate_base = k33 * thCH2 * SITE_DEN_Pt * thOH * SITE_DEN_Pt;
+        *rr = rate_base * Wash_F * eta;
+
+        if (print_gate[33] == 0) {
+            #if RP_NODE
+            if (myid == 0) Message0("\n[r33] rate_base=%.6e | rate_wash=%.6e | rate_eta=%.6e (eta=%.3e)\n", rate_base, rate_base*Wash_F, *rr, eta);
+            #endif
+            #if RP_HOST
+            Message("\n[r33] rate_base=%.6e | rate_wash=%.6e | rate_eta=%.6e (eta=%.3e)\n", rate_base, rate_base*Wash_F, *rr, eta);
+            #endif
+            print_gate[33] = 1;
+        }
+    }
+    else if (STREQ(r->name, "reaction-34")) {
+        /* R34: CH2(s) + O(s) -> CH(s) + OH(s) */
+        real r7_dum, phi, eta;
+        reaction7_base_and_eta(c0, t0, Tw, yi, Cv_R7_val, &r7_dum, &phi, &eta);
+        const real k34 = k_surface_covdep(A34_k, 0.0, Ea34_Jpm, Tw, idx_null, val_null, val_null, 0, yi);
+        const real thCH2 = CLAMP01(yi[IDX_CH2_Pt]);
+        const real thO = CLAMP01(yi[IDX_O_Pt]);
+        const real rate_base = k34 * thCH2 * SITE_DEN_Pt * thO * SITE_DEN_Pt;
+        *rr = rate_base * Wash_F * eta;
+
+        if (print_gate[34] == 0) {
+            #if RP_NODE
+            if (myid == 0) Message0("\n[r34] rate_base=%.6e | rate_wash=%.6e | rate_eta=%.6e (eta=%.3e)\n", rate_base, rate_base*Wash_F, *rr, eta);
+            #endif
+            #if RP_HOST
+            Message("\n[r34] rate_base=%.6e | rate_wash=%.6e | rate_eta=%.6e (eta=%.3e)\n", rate_base, rate_base*Wash_F, *rr, eta);
+            #endif
+            print_gate[34] = 1;
+        }
+    }
+    else if (STREQ(r->name, "reaction-35")) {
+        /* R35: CH(s) + OH(s) -> CH2(s) + O(s) */
+        real r7_dum, phi, eta;
+        reaction7_base_and_eta(c0, t0, Tw, yi, Cv_R7_val, &r7_dum, &phi, &eta);
+        const real k35 = k_surface_covdep(A35_k, 0.0, Ea35_Jpm, Tw, idx_null, val_null, val_null, 0, yi);
+        const real thCH = CLAMP01(yi[IDX_CH_Pt]);
+        const real thOH = CLAMP01(yi[IDX_OH_Pt]);
+        const real rate_base = k35 * thCH * SITE_DEN_Pt * thOH * SITE_DEN_Pt;
+        *rr = rate_base * Wash_F * eta;
+
+        if (print_gate[35] == 0) {
+            #if RP_NODE
+            if (myid == 0) Message0("\n[r35] rate_base=%.6e | rate_wash=%.6e | rate_eta=%.6e (eta=%.3e)\n", rate_base, rate_base*Wash_F, *rr, eta);
+            #endif
+            #if RP_HOST
+            Message("\n[r35] rate_base=%.6e | rate_wash=%.6e | rate_eta=%.6e (eta=%.3e)\n", rate_base, rate_base*Wash_F, *rr, eta);
+            #endif
+            print_gate[35] = 1;
+        }
+    }
+    else if (STREQ(r->name, "reaction-36")) {
+        /* R36: CH(s) + O(s) -> C(s) + OH(s) */
+        real r7_dum, phi, eta;
+        reaction7_base_and_eta(c0, t0, Tw, yi, Cv_R7_val, &r7_dum, &phi, &eta);
+        const real k36 = k_surface_covdep(A36_k, 0.0, Ea36_Jpm, Tw, idx_null, val_null, val_null, 0, yi);
+        const real thCH = CLAMP01(yi[IDX_CH_Pt]);
+        const real thO = CLAMP01(yi[IDX_O_Pt]);
+        const real rate_base = k36 * thCH * SITE_DEN_Pt * thO * SITE_DEN_Pt;
+        *rr = rate_base * Wash_F * eta;
+
+        if (print_gate[36] == 0) {
+            #if RP_NODE
+            if (myid == 0) Message0("\n[r36] rate_base=%.6e | rate_wash=%.6e | rate_eta=%.6e (eta=%.3e)\n", rate_base, rate_base*Wash_F, *rr, eta);
+            #endif
+            #if RP_HOST
+            Message("\n[r36] rate_base=%.6e | rate_wash=%.6e | rate_eta=%.6e (eta=%.3e)\n", rate_base, rate_base*Wash_F, *rr, eta);
+            #endif
+            print_gate[36] = 1;
+        }
+    }
+    else if (STREQ(r->name, "reaction-37")) {
+        /* R37: C(s) + OH(s) -> CH(s) + O(s) */
+        real r7_dum, phi, eta;
+        reaction7_base_and_eta(c0, t0, Tw, yi, Cv_R7_val, &r7_dum, &phi, &eta);
+        const real k37 = k_surface_covdep(A37_k, 0.0, Ea37_Jpm, Tw, idx_null, val_null, val_null, 0, yi);
+        const real thC = CLAMP01(yi[IDX_C_Pt]);
+        const real thOH = CLAMP01(yi[IDX_OH_Pt]);
+        const real rate_base = k37 * thC * SITE_DEN_Pt * thOH * SITE_DEN_Pt;
+        *rr = rate_base * Wash_F * eta;
+
+        if (print_gate[37] == 0) {
+            #if RP_NODE
+            if (myid == 0) Message0("\n[r37] rate_base=%.6e | rate_wash=%.6e | rate_eta=%.6e (eta=%.3e)\n", rate_base, rate_base*Wash_F, *rr, eta);
+            #endif
+            #if RP_HOST
+            Message("\n[r37] rate_base=%.6e | rate_wash=%.6e | rate_eta=%.6e (eta=%.3e)\n", rate_base, rate_base*Wash_F, *rr, eta);
+            #endif
+            print_gate[37] = 1;
+        }
+    }
+    else if (STREQ(r->name, "reaction-38")) {
+        /* R38: O(s) + H(s) -> OH(s) + Pt(s) */
+        real r7_dum, phi, eta;
+        reaction7_base_and_eta(c0, t0, Tw, yi, Cv_R7_val, &r7_dum, &phi, &eta);
+        const real k38 = k_surface_covdep(A38_k, 0.0, Ea38_Jpm, Tw, idx_null, val_null, val_null, 0, yi);
+        const real thO = CLAMP01(yi[IDX_O_Pt]);
+        const real thH = CLAMP01(yi[IDX_H_Pt]);
+        const real rate_base = k38 * thO * SITE_DEN_Pt * thH * SITE_DEN_Pt;
+        *rr = rate_base * Wash_F * eta;
+
+        if (print_gate[38] == 0) {
+            #if RP_NODE
+            if (myid == 0) Message0("\n[r38] rate_base=%.6e | rate_wash=%.6e | rate_eta=%.6e (eta=%.3e)\n", rate_base, rate_base*Wash_F, *rr, eta);
+            #endif
+            #if RP_HOST
+            Message("\n[r38] rate_base=%.6e | rate_wash=%.6e | rate_eta=%.6e (eta=%.3e)\n", rate_base, rate_base*Wash_F, *rr, eta);
+            #endif
+            print_gate[38] = 1;
+        }
+    }
+    else if (STREQ(r->name, "reaction-39")) {
+        /* R39: OH(s) + Pt(s) -> O(s) + H(s) */
+        real r7_dum, phi, eta;
+        reaction7_base_and_eta(c0, t0, Tw, yi, Cv_R7_val, &r7_dum, &phi, &eta);
+        const real k39 = k_surface_covdep(A39_k, 0.0, Ea39_Jpm, Tw, idx_null, val_null, val_null, 0, yi);
+        const real thOH = CLAMP01(yi[IDX_OH_Pt]);
+        const real rate_base = k39 * thOH * SITE_DEN_Pt * term_pt;
+        *rr = rate_base * Wash_F * eta;
+
+        if (print_gate[39] == 0) {
+            #if RP_NODE
+            if (myid == 0) Message0("\n[r39] rate_base=%.6e | rate_wash=%.6e | rate_eta=%.6e (eta=%.3e)\n", rate_base, rate_base*Wash_F, *rr, eta);
+            #endif
+            #if RP_HOST
+            Message("\n[r39] rate_base=%.6e | rate_wash=%.6e | rate_eta=%.6e (eta=%.3e)\n", rate_base, rate_base*Wash_F, *rr, eta);
+            #endif
+            print_gate[39] = 1;
+        }
+    }
+    else if (STREQ(r->name, "reaction-40")) {
+        /* R40: H(s) + OH(s) -> H2O(s) + Pt(s) */
+        real r7_dum, phi, eta;
+        reaction7_base_and_eta(c0, t0, Tw, yi, Cv_R7_val, &r7_dum, &phi, &eta);
+        const real k40 = k_surface_covdep(A40_k, 0.0, Ea40_Jpm, Tw, idx_null, val_null, val_null, 0, yi);
+        const real thH = CLAMP01(yi[IDX_H_Pt]);
+        const real thOH = CLAMP01(yi[IDX_OH_Pt]);
+        const real rate_base = k40 * thH * SITE_DEN_Pt * thOH * SITE_DEN_Pt;
+        *rr = rate_base * Wash_F * eta;
+
+        if (print_gate[40] == 0) {
+            #if RP_NODE
+            if (myid == 0) Message0("\n[r40] rate_base=%.6e | rate_wash=%.6e | rate_eta=%.6e (eta=%.3e)\n", rate_base, rate_base*Wash_F, *rr, eta);
+            #endif
+            #if RP_HOST
+            Message("\n[r40] rate_base=%.6e | rate_wash=%.6e | rate_eta=%.6e (eta=%.3e)\n", rate_base, rate_base*Wash_F, *rr, eta);
+            #endif
+            print_gate[40] = 1;
+        }
+    }
+    else if (STREQ(r->name, "reaction-41")) {
+        /* R41: H2O(s) + Pt(s) -> H(s) + OH(s) */
+        real r7_dum, phi, eta;
+        reaction7_base_and_eta(c0, t0, Tw, yi, Cv_R7_val, &r7_dum, &phi, &eta);
+        const real k41 = k_surface_covdep(A41_k, 0.0, Ea41_Jpm, Tw, idx_null, val_null, val_null, 0, yi);
+        const real thH2O = CLAMP01(yi[IDX_H2O_Pt]);
+        const real rate_base = k41 * thH2O * SITE_DEN_Pt * term_pt;
+        *rr = rate_base * Wash_F * eta;
+
+        if (print_gate[41] == 0) {
+            #if RP_NODE
+            if (myid == 0) Message0("\n[r41] rate_base=%.6e | rate_wash=%.6e | rate_eta=%.6e (eta=%.3e)\n", rate_base, rate_base*Wash_F, *rr, eta);
+            #endif
+            #if RP_HOST
+            Message("\n[r41] rate_base=%.6e | rate_wash=%.6e | rate_eta=%.6e (eta=%.3e)\n", rate_base, rate_base*Wash_F, *rr, eta);
+            #endif
+            print_gate[41] = 1;
+        }
+    }
+    else if (STREQ(r->name, "reaction-42")) {
+        /* R42: OH(s) + OH(s) -> H2O(s) + O(s) */
+        real r7_dum, phi, eta;
+        reaction7_base_and_eta(c0, t0, Tw, yi, Cv_R7_val, &r7_dum, &phi, &eta);
+        const real k42 = k_surface_covdep(A42_k, 0.0, Ea42_Jpm, Tw, idx_null, val_null, val_null, 0, yi);
+        const real thOH = CLAMP01(yi[IDX_OH_Pt]);
+        const real rate_base = k42 * thOH * SITE_DEN_Pt * thOH * SITE_DEN_Pt;
+        *rr = rate_base * Wash_F * eta;
+
+        if (print_gate[42] == 0) {
+            #if RP_NODE
+            if (myid == 0) Message0("\n[r42] rate_base=%.6e | rate_wash=%.6e | rate_eta=%.6e (eta=%.3e)\n", rate_base, rate_base*Wash_F, *rr, eta);
+            #endif
+            #if RP_HOST
+            Message("\n[r42] rate_base=%.6e | rate_wash=%.6e | rate_eta=%.6e (eta=%.3e)\n", rate_base, rate_base*Wash_F, *rr, eta);
+            #endif
+            print_gate[42] = 1;
+        }
+    }
+    else if (STREQ(r->name, "reaction-43")) {
+        /* R43: H2O(s) + O(s) -> OH(s) + OH(s) */
+        real r7_dum, phi, eta;
+        reaction7_base_and_eta(c0, t0, Tw, yi, Cv_R7_val, &r7_dum, &phi, &eta);
+        const real k43 = k_surface_covdep(A43_k, 0.0, Ea43_Jpm, Tw, idx_null, val_null, val_null, 0, yi);
+        const real thH2O = CLAMP01(yi[IDX_H2O_Pt]);
+        const real thO = CLAMP01(yi[IDX_O_Pt]);
+        const real rate_base = k43 * thH2O * SITE_DEN_Pt * thO * SITE_DEN_Pt;
+        *rr = rate_base * Wash_F * eta;
+
+        if (print_gate[43] == 0) {
+            #if RP_NODE
+            if (myid == 0) Message0("\n[r43] rate_base=%.6e | rate_wash=%.6e | rate_eta=%.6e (eta=%.3e)\n", rate_base, rate_base*Wash_F, *rr, eta);
+            #endif
+            #if RP_HOST
+            Message("\n[r43] rate_base=%.6e | rate_wash=%.6e | rate_eta=%.6e (eta=%.3e)\n", rate_base, rate_base*Wash_F, *rr, eta);
+            #endif
+            print_gate[43] = 1;
+        }
+    }
+    else if (STREQ(r->name, "reaction-44")) {
+        /* R44: CO(s) + O(s) -> CO2(s) + Pt(s) */
+        real r7_dum, phi, eta;
+        reaction7_base_and_eta(c0, t0, Tw, yi, Cv_R7_val, &r7_dum, &phi, &eta);
+        const real k44 = k_surface_covdep(A44_k, 0.0, Ea44_Jpm, Tw, idx_site_r44, val_null, eps_r44, NS_R44, yi);
+        const real thCO = CLAMP01(yi[IDX_CO_Pt]);
+        const real thO = CLAMP01(yi[IDX_O_Pt]);
+        const real rate_base = k44 * thCO * SITE_DEN_Pt * thO * SITE_DEN_Pt;
+        *rr = rate_base * Wash_F * eta;
+
+        if (print_gate[44] == 0) {
+            #if RP_NODE
+            if (myid == 0) Message0("\n[r44] rate_base=%.6e | rate_wash=%.6e | rate_eta=%.6e (eta=%.3e)\n", rate_base, rate_base*Wash_F, *rr, eta);
+            #endif
+            #if RP_HOST
+            Message("\n[r44] rate_base=%.6e | rate_wash=%.6e | rate_eta=%.6e (eta=%.3e)\n", rate_base, rate_base*Wash_F, *rr, eta);
+            #endif
+            print_gate[44] = 1;
+        }
+    }
+    else if (STREQ(r->name, "reaction-45")) {
+        /* R45: CO2(s) + Pt(s) -> CO(s) + O(s) */
+        real r7_dum, phi, eta;
+        reaction7_base_and_eta(c0, t0, Tw, yi, Cv_R7_val, &r7_dum, &phi, &eta);
+        const real k45 = k_surface_covdep(A45_k, 0.0, Ea45_Jpm, Tw, idx_site_r45, val_null, eps_r45, NS_R45, yi);
+        const real thCO2 = CLAMP01(yi[IDX_CO2_Pt]);
+        const real rate_base = k45 * thCO2 * SITE_DEN_Pt * term_pt;
+        *rr = rate_base * Wash_F * eta;
+
+        if (print_gate[45] == 0) {
+            #if RP_NODE
+            if (myid == 0) Message0("\n[r45] rate_base=%.6e | rate_wash=%.6e | rate_eta=%.6e (eta=%.3e)\n", rate_base, rate_base*Wash_F, *rr, eta);
+            #endif
+            #if RP_HOST
+            Message("\n[r45] rate_base=%.6e | rate_wash=%.6e | rate_eta=%.6e (eta=%.3e)\n", rate_base, rate_base*Wash_F, *rr, eta);
+            #endif
+            print_gate[45] = 1;
+        }
+    }
+    else if (STREQ(r->name, "reaction-46")) {
+        /* R46: C(s) + O(s) -> CO(s) + Pt(s) */
+        real r7_dum, phi, eta;
+        reaction7_base_and_eta(c0, t0, Tw, yi, Cv_R7_val, &r7_dum, &phi, &eta);
+        const real k46 = k_surface_covdep(A46_k, 0.0, Ea46_Jpm, Tw, idx_site_r46, val_null, eps_r46, NS_R46, yi);
+        const real thC = CLAMP01(yi[IDX_C_Pt]);
+        const real thO = CLAMP01(yi[IDX_O_Pt]);
+        const real rate_base = k46 * thC * SITE_DEN_Pt * thO * SITE_DEN_Pt;
+        *rr = rate_base * Wash_F * eta;
+
+        if (print_gate[46] == 0) {
+            #if RP_NODE
+            if (myid == 0) Message0("\n[r46] rate_base=%.6e | rate_wash=%.6e | rate_eta=%.6e (eta=%.3e)\n", rate_base, rate_base*Wash_F, *rr, eta);
+            #endif
+            #if RP_HOST
+            Message("\n[r46] rate_base=%.6e | rate_wash=%.6e | rate_eta=%.6e (eta=%.3e)\n", rate_base, rate_base*Wash_F, *rr, eta);
+            #endif
+            print_gate[46] = 1;
+        }
+    }
+    else if (STREQ(r->name, "reaction-47")) {
+        /* R47: CO(s) + Pt(s) -> C(s) + O(s) */
+        real r7_dum, phi, eta;
+        reaction7_base_and_eta(c0, t0, Tw, yi, Cv_R7_val, &r7_dum, &phi, &eta);
+        const real k47 = k_surface_covdep(A47_k, 0.0, Ea47_Jpm, Tw, idx_site_r47, val_null, eps_r47, NS_R47, yi);
+        const real thCO = CLAMP01(yi[IDX_CO_Pt]);
+        const real rate_base = k47 * thCO * SITE_DEN_Pt * term_pt;
+        *rr = rate_base * Wash_F * eta;
+
+        if (print_gate[47] == 0) {
+            #if RP_NODE
+            if (myid == 0) Message0("\n[r47] rate_base=%.6e | rate_wash=%.6e | rate_eta=%.6e (eta=%.3e)\n", rate_base, rate_base*Wash_F, *rr, eta);
+            #endif
+            #if RP_HOST
+            Message("\n[r47] rate_base=%.6e | rate_wash=%.6e | rate_eta=%.6e (eta=%.3e)\n", rate_base, rate_base*Wash_F, *rr, eta);
+            #endif
+            print_gate[47] = 1;
+        }
+    }
+    else if (STREQ(r->name, "reaction-51")) {
+        /* R51: NO(s) + Pt(s) -> N(s) + O(s) */
+        real r7_dum, phi, eta;
+        reaction7_base_and_eta(c0, t0, Tw, yi, Cv_R7_val, &r7_dum, &phi, &eta);
+        const real k51 = k_surface_covdep(A51_k, 0.0, Ea51_Jpm, Tw, idx_site_r51, val_null, eps_r51, NS_R51, yi);
+        const real thNO = CLAMP01(yi[IDX_NO_Pt]);
+        const real rate_base = k51 * thNO * SITE_DEN_Pt * term_pt;
+        *rr = rate_base * Wash_F * eta;
+
+        if (print_gate[51] == 0) {
+            #if RP_NODE
+            if (myid == 0) Message0("\n[r51] rate_base=%.6e | rate_wash=%.6e | rate_eta=%.6e (eta=%.3e)\n", rate_base, rate_base*Wash_F, *rr, eta);
+            #endif
+            #if RP_HOST
+            Message("\n[r51] rate_base=%.6e | rate_wash=%.6e | rate_eta=%.6e (eta=%.3e)\n", rate_base, rate_base*Wash_F, *rr, eta);
+            #endif
+            print_gate[51] = 1;
+        }
+    }
+    else if (STREQ(r->name, "reaction-52")) {
+        /* R52: N(s) + O(s) -> NO(s) + Pt(s) */
+        real r7_dum, phi, eta;
+        reaction7_base_and_eta(c0, t0, Tw, yi, Cv_R7_val, &r7_dum, &phi, &eta);
+        const real k52 = k_surface_covdep(A52_k, 0.0, Ea52_Jpm, Tw, idx_site_r52, val_null, eps_r52, NS_R52, yi);
+        const real thN = CLAMP01(yi[IDX_N_Pt]);
+        const real thO = CLAMP01(yi[IDX_O_Pt]);
+        const real rate_base = k52 * thN * SITE_DEN_Pt * thO * SITE_DEN_Pt;
+        *rr = rate_base * Wash_F * eta;
+
+        if (print_gate[52] == 0) {
+            #if RP_NODE
+            if (myid == 0) Message0("\n[r52] rate_base=%.6e | rate_wash=%.6e | rate_eta=%.6e (eta=%.3e)\n", rate_base, rate_base*Wash_F, *rr, eta);
+            #endif
+            #if RP_HOST
+            Message("\n[r52] rate_base=%.6e | rate_wash=%.6e | rate_eta=%.6e (eta=%.3e)\n", rate_base, rate_base*Wash_F, *rr, eta);
+            #endif
+            print_gate[52] = 1;
+        }
+    }
+    else if (STREQ(r->name, "reaction-60")) {
+        /* R60: CO(Rh) + O(Rh) -> CO2 + Rh(s) + Rh(s) */
+        real r7_dum, phi, eta;
+        reaction7_base_and_eta(c0, t0, Tw, yi, Cv_R7_val, &r7_dum, &phi, &eta);
+        const real k60 = k_surface_covdep(A60_k, 0.0, Ea60_Jpm, Tw, idx_null, val_null, val_null, 0, yi);
+        const real thCO_rh = CLAMP01(yi[IDX_CO_Rh]);
+        const real thO_rh = CLAMP01(yi[IDX_O_Rh]);
+        const real rate_base = k60 * thCO_rh * SITE_DEN_Rh * thO_rh * SITE_DEN_Rh;
+        *rr = rate_base * Wash_F * eta;
+
+        if (print_gate[60] == 0) {
+            #if RP_NODE
+            if (myid == 0) Message0("\n[r60] rate_base=%.6e | rate_wash=%.6e | rate_eta=%.6e (eta=%.3e)\n", rate_base, rate_base*Wash_F, *rr, eta);
+            #endif
+            #if RP_HOST
+            Message("\n[r60] rate_base=%.6e | rate_wash=%.6e | rate_eta=%.6e (eta=%.3e)\n", rate_base, rate_base*Wash_F, *rr, eta);
+            #endif
+            print_gate[60] = 1;
+        }
+    }
+    else if (STREQ(r->name, "reaction-61")) {
+        /* R61: NO(Rh) + Rh(s) -> N(Rh) + O(Rh) */
+        real r7_dum, phi, eta;
+        reaction7_base_and_eta(c0, t0, Tw, yi, Cv_R7_val, &r7_dum, &phi, &eta);
+        const real k61 = k_surface_covdep(A61_k, 0.0, Ea61_Jpm, Tw, idx_null, val_null, val_null, 0, yi);
+        const real thNO_rh = CLAMP01(yi[IDX_NO_Rh]);
+        const real rate_base = k61 * thNO_rh * SITE_DEN_Rh * term_rh;
+        *rr = rate_base * Wash_F * eta;
+
+        if (print_gate[61] == 0) {
+            #if RP_NODE
+            if (myid == 0) Message0("\n[r61] rate_base=%.6e | rate_wash=%.6e | rate_eta=%.6e (eta=%.3e)\n", rate_base, rate_base*Wash_F, *rr, eta);
+            #endif
+            #if RP_HOST
+            Message("\n[r61] rate_base=%.6e | rate_wash=%.6e | rate_eta=%.6e (eta=%.3e)\n", rate_base, rate_base*Wash_F, *rr, eta);
+            #endif
+            print_gate[61] = 1;
+        }
+    }
+    else if (STREQ(r->name, "reaction-49")) {
+        /* R49: NO(s) -> NO (Pt) */
+        real r7_dum, phi, eta;
+        reaction7_base_and_eta(c0, t0, Tw, yi, Cv_R7_val, &r7_dum, &phi, &eta);
+        const real k49 = k_surface_covdep(A49_k, 0.0, Ea49_Jpm, Tw, idx_null, val_null, val_null, 0, yi);
+        const real thNO = CLAMP01(yi[IDX_NO_Pt]);
+        const real rate_base = k49 * thNO * SITE_DEN_Pt;
+        *rr = rate_base * Wash_F * eta;
+
+        if(print_gate[49]==0) {
+            #if RP_NODE
+            if(myid==0) Message0("\n[r49] rate_base=%.6e | rate_wash=%.6e | rate_eta=%.6e (eta=%.3e)\n", rate_base, rate_base*Wash_F, *rr, eta);
+            #endif
+            #if RP_HOST
+            Message("\n[r49] rate_base=%.6e | rate_wash=%.6e | rate_eta=%.6e (eta=%.3e)\n", rate_base, rate_base*Wash_F, *rr, eta);
+            #endif
+            print_gate[49]=1;
+        }
+    }
+    else if (STREQ(r->name, "reaction-50")) {
+        /* R50: 2N(s) -> N2 (Pt) */
+        real r7_dum, phi, eta;
+        reaction7_base_and_eta(c0, t0, Tw, yi, Cv_R7_val, &r7_dum, &phi, &eta);
+        const real k50 = k_surface_covdep(A50_k, B50_beta, Ea50_Jpm, Tw, idx_site_r50, val_null, eps_r50, NS_R50, yi);
+        const real thN = CLAMP01(yi[IDX_N_Pt]);
+        const real rate_base = k50 * thN * thN * SITE_DEN_Pt * SITE_DEN_Pt;
+        *rr = rate_base * Wash_F * eta;
+
+        if(print_gate[50]==0) {
+            #if RP_NODE
+            if(myid==0) Message0("\n[r50] rate_base=%.6e | rate_wash=%.6e | rate_eta=%.6e (eta=%.3e)\n", rate_base, rate_base*Wash_F, *rr, eta);
+            #endif
+            #if RP_HOST
+            Message("\n[r50] rate_base=%.6e | rate_wash=%.6e | rate_eta=%.6e (eta=%.3e)\n", rate_base, rate_base*Wash_F, *rr, eta);
+            #endif
+            print_gate[50]=1;
+        }
+    }
+    else if (STREQ(r->name, "reaction-56")) {
+        /* R56: 2O(Rh) -> O2 */
+        real r7_dum, phi, eta;
+        reaction7_base_and_eta(c0, t0, Tw, yi, Cv_R7_val, &r7_dum, &phi, &eta);
+        const real k56 = k_surface_covdep(A56_k, B56_beta, Ea56_Jpm, Tw, idx_null, val_null, val_null, 0, yi);
+        const real thO_rh = CLAMP01(yi[IDX_O_Rh]);
+        const real rate_base = k56 * thO_rh * thO_rh * SITE_DEN_Rh * SITE_DEN_Rh;
+        *rr = rate_base * Wash_F * eta;
+
+        if(print_gate[56]==0) {
+            #if RP_NODE
+            if(myid==0) Message0("\n[r56] rate_base=%.6e | rate_wash=%.6e | rate_eta=%.6e (eta=%.3e)\n", rate_base, rate_base*Wash_F, *rr, eta);
+            #endif
+            #if RP_HOST
+            Message("\n[r56] rate_base=%.6e | rate_wash=%.6e | rate_eta=%.6e (eta=%.3e)\n", rate_base, rate_base*Wash_F, *rr, eta);
+            #endif
+            print_gate[56]=1;
+        }
+    }
+    else if (STREQ(r->name, "reaction-57")) {
+        /* R57: CO(Rh) -> CO */
+        real r7_dum, phi, eta;
+        reaction7_base_and_eta(c0, t0, Tw, yi, Cv_R7_val, &r7_dum, &phi, &eta);
+        const real k57 = k_surface_covdep(A57_k, B57_beta, Ea57_Jpm, Tw, idx_site_r57, val_null, eps_r57, NS_R57, yi);
+        const real thCO_rh = CLAMP01(yi[IDX_CO_Rh]);
+        const real rate_base = k57 * thCO_rh * SITE_DEN_Rh;
+        *rr = rate_base * Wash_F * eta;
+
+        if(print_gate[57]==0) {
+            #if RP_NODE
+            if(myid==0) Message0("\n[r57] rate_base=%.6e | rate_wash=%.6e | rate_eta=%.6e (eta=%.3e)\n", rate_base, rate_base*Wash_F, *rr, eta);
+            #endif
+            #if RP_HOST
+            Message("\n[r57] rate_base=%.6e | rate_wash=%.6e | rate_eta=%.6e (eta=%.3e)\n", rate_base, rate_base*Wash_F, *rr, eta);
+            #endif
+            print_gate[57]=1;
+        }
+    }
+    else if (STREQ(r->name, "reaction-58")) {
+        /* R58: NO(Rh) -> NO */
+        real r7_dum, phi, eta;
+        reaction7_base_and_eta(c0, t0, Tw, yi, Cv_R7_val, &r7_dum, &phi, &eta);
+        const real k58 = k_surface_covdep(A58_k, B58_beta, Ea58_Jpm, Tw, idx_null, val_null, val_null, 0, yi);
+        const real thNO_rh = CLAMP01(yi[IDX_NO_Rh]);
+        const real rate_base = k58 * thNO_rh * SITE_DEN_Rh;
+        *rr = rate_base * Wash_F * eta;
+
+        if(print_gate[58]==0) {
+            #if RP_NODE
+            if(myid==0) Message0("\n[r58] rate_base=%.6e | rate_wash=%.6e | rate_eta=%.6e (eta=%.3e)\n", rate_base, rate_base*Wash_F, *rr, eta);
+            #endif
+            #if RP_HOST
+            Message("\n[r58] rate_base=%.6e | rate_wash=%.6e | rate_eta=%.6e (eta=%.3e)\n", rate_base, rate_base*Wash_F, *rr, eta);
+            #endif
+            print_gate[58]=1;
+        }
+    }
+    else if (STREQ(r->name, "reaction-59")) {
+        /* R59: 2N(Rh) -> N2 */
+        real r7_dum, phi, eta;
+        reaction7_base_and_eta(c0, t0, Tw, yi, Cv_R7_val, &r7_dum, &phi, &eta);
+        const real k59 = k_surface_covdep(A59_k, B59_beta, Ea59_Jpm, Tw, idx_site_r59, val_null, eps_r59, NS_R59, yi);
+        const real thN_rh = CLAMP01(yi[IDX_N_Rh]);
+        const real rate_base = k59 * thN_rh * thN_rh * SITE_DEN_Rh * SITE_DEN_Rh;
+        *rr = rate_base * Wash_F * eta;
+
+        if(print_gate[59]==0) {
+            #if RP_NODE
+            if(myid==0) Message0("\n[r59] rate_base=%.6e | rate_wash=%.6e | rate_eta=%.6e (eta=%.3e)\n", rate_base, rate_base*Wash_F, *rr, eta);
+            #endif
+            #if RP_HOST
+            Message("\n[r59] rate_base=%.6e | rate_wash=%.6e | rate_eta=%.6e (eta=%.3e)\n", rate_base, rate_base*Wash_F, *rr, eta);
+            #endif
+            print_gate[59]=1;
+        }
+    }
 }
