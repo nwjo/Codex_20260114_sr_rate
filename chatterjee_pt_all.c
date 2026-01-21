@@ -243,38 +243,38 @@ static const int  idx_site_r53[] = { IDX_Rh_Vac };
 static const real mu_r53[]       = { -1.0 };
 
 /* R1: O2 + Pt(s) + Pt(s) -> O(s) + O(s) */
-/* A1_k = 1.081678e+15 */
-#define A1_k    A_from_sticking(S0_O2, MW_O2, SITE_DEN_Pt, q_R1)
+/* A1_k = 6.084439e+14 */
+#define A1_k    A_from_sticking(S0_O2, MW_O2, SITE_DEN_TOT, q_R1)
 /* R2: C3H6 + Pt(s) + Pt(s) -> C3H6(s) */
-/* A2_k = 1.320535e+16 */
-#define A2_k    A_from_sticking(S0_C3H6, MW_C3H6, SITE_DEN_Pt, q_R2)
+/* A2_k = 7.428009e+15 */
+#define A2_k    A_from_sticking(S0_C3H6, MW_C3H6, SITE_DEN_TOT, q_R2)
 /* R3: C3H6 + O(s) + Pt(s) -> C3H5(s) + OH(s) */
-/* A3_k = 6.737423e+14 */
-#define A3_k    A_from_sticking(S0_C3H6_O, MW_C3H6, SITE_DEN_Pt, q_R3)
+/* A3_k = 3.789800e+14 */
+#define A3_k    A_from_sticking(S0_C3H6_O, MW_C3H6, SITE_DEN_TOT, q_R3)
 /* R4: H2 + Pt(s) + Pt(s) -> H(s) + H(s) */
-/* A4_k = 2.831952e+15 */
-#define A4_k    A_from_sticking(S0_H2, MW_H2, SITE_DEN_Pt, q_R4)
+/* A4_k = 1.592973e+15 */
+#define A4_k    A_from_sticking(S0_H2, MW_H2, SITE_DEN_TOT, q_R4)
 /* R5: H2O + Pt(s) -> H2O(s) */
-/* A5_k = 3.150917e+08 */
-#define A5_k    A_from_sticking(S0_H2O, MW_H2O, SITE_DEN_Pt, q_R5)
+/* A5_k = 2.363188e+08 */
+#define A5_k    A_from_sticking(S0_H2O, MW_H2O, SITE_DEN_TOT, q_R5)
 /* R6: CO2 + Pt(s) -> CO2(s) */
-/* A6_k = 1.343976e+06 */
-#define A6_k    A_from_sticking(S0_CO2, MW_CO2, SITE_DEN_Pt, q_R6)
+/* A6_k = 1.007982e+06 */
+#define A6_k    A_from_sticking(S0_CO2, MW_CO2, SITE_DEN_TOT, q_R6)
 /* R7: CO + Pt(s) -> CO(s) */
-/* A7_k = 2.830189e+08 */
-#define A7_k    A_from_sticking(S0_CO, MW_CO, SITE_DEN_Pt, q_R7)
+/* A7_k = 2.122642e+08 */
+#define A7_k    A_from_sticking(S0_CO, MW_CO, SITE_DEN_TOT, q_R7)
 /* R48: NO + Pt(s) -> NO(s) */
-/* A48_k = 2.767013e+08 */
-#define A48_k   A_from_sticking(S0_NO, MW_NO, SITE_DEN_Pt, q_R48)
+/* A48_k = 2.075259e+08 */
+#define A48_k   A_from_sticking(S0_NO, MW_NO, SITE_DEN_TOT, q_R48)
 /* R53: O2 + Rh(s) + Rh(s) -> O(Rh) + O(Rh) */
-/* A53_k = 1.390729e+15 */
-#define A53_k   A_from_sticking(S1_O2, MW_O2, SITE_DEN_Rh, q_R53)
+/* A53_k = 8.692056e+13 */
+#define A53_k   A_from_sticking(S1_O2, MW_O2, SITE_DEN_TOT, q_R53)
 /* R54: CO + Rh(s) -> CO(Rh) */
-/* A54_k = 5.053909e+08 */
-#define A54_k   A_from_sticking(S1_CO, MW_CO, SITE_DEN_Rh, q_R54)
+/* A54_k = 1.263477e+08 */
+#define A54_k   A_from_sticking(S1_CO, MW_CO, SITE_DEN_TOT, q_R54)
 /* R55: NO + Rh(s) -> NO(Rh) */
-/* A55_k = 4.882963e+08 */
-#define A55_k   A_from_sticking(S1_NO, MW_NO, SITE_DEN_Rh, q_R55)
+/* A55_k = 1.220741e+08 */
+#define A55_k   A_from_sticking(S1_NO, MW_NO, SITE_DEN_TOT, q_R55)
 
 /* --- DESORPTION CONSTANTS (Added from rev19) --- */
 /* R8: O(s) + O(s) -> O2 + Pt(s) + Pt(s) */
